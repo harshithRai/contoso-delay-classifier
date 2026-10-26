@@ -1,0 +1,86 @@
+{
+  "environment": "local",
+  "vmSize": "local process",
+  "instances": 1,
+  "requests": 10,
+  "concurrency": 1,
+  "userId": "5c08221e-ab32-4cac-b50b-6136a219600a",
+  "totalSeconds": 0.028,
+  "p50ClientMs": null,
+  "p95ClientMs": null,
+  "errorRatePercent": 100.0,
+  "invalidCount": 0,
+  "latencyWindow": "successful requests in this load test; client wall time includes transport",
+  "results": [
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 12,
+      "apiLatencyMs": 4,
+      "requestId": "7b73424f-73b4-4d4f-82c2-8ecb77b3c7d8"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 2,
+      "apiLatencyMs": 1,
+      "requestId": "f7e31603-0c51-4509-b4f5-73550a88d4f3"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 2,
+      "apiLatencyMs": 1,
+      "requestId": "43fbefe7-77bd-4a18-a05a-2e52c39c8c0c"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 2,
+      "apiLatencyMs": 1,
+      "requestId": "49d69f3a-a514-4671-b631-ec060dbf2e48"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 2,
+      "apiLatencyMs": 1,
+      "requestId": "7bcacdc6-344e-4f58-9b91-31d0abd07ccb"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 2,
+      "apiLatencyMs": 1,
+      "requestId": "72278cfe-0833-41bd-8162-fb3303e2cd1a"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 1,
+      "apiLatencyMs": 1,
+      "requestId": "496327ba-058b-4012-9b65-1617b9467255"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 1,
+      "apiLatencyMs": 1,
+      "requestId": "bc4e9284-5c0c-4ba1-b7f2-18571efd4aa0"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 2,
+      "apiLatencyMs": 1,
+      "requestId": "aec9a716-e0d2-4953-9b51-2e4a62441360"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 1,
+      "apiLatencyMs": 1,
+      "requestId": "4dd44e47-e27c-496d-b3b4-8995201229c6"
+    }
+  ]
+}

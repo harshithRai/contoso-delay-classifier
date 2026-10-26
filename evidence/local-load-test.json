@@ -1,0 +1,716 @@
+{
+  "environment": "local",
+  "vmSize": "local process",
+  "instances": 1,
+  "requests": 100,
+  "concurrency": 5,
+  "userId": "load-543d13e5-9ce8-44fc-8bfc-313c3ea385f8",
+  "totalSeconds": 0.206,
+  "p50ClientMs": 9.0,
+  "p95ClientMs": 12,
+  "errorRatePercent": 0.0,
+  "invalidCount": 0,
+  "latencyWindow": "successful requests in this load test; client wall time includes transport",
+  "results": [
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 32,
+      "apiLatencyMs": 19,
+      "requestId": "b79014a1-24e7-46c9-81f5-c2844769db9e"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 24,
+      "apiLatencyMs": 15,
+      "requestId": "b9a3b310-ba85-41d9-8378-79ad791a8273"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 31,
+      "apiLatencyMs": 19,
+      "requestId": "d6a706f0-c6d6-4703-88e7-78748daaabaf"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 26,
+      "apiLatencyMs": 15,
+      "requestId": "145d9ddc-6b6e-4316-bf55-053f3d860620"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 24,
+      "apiLatencyMs": 15,
+      "requestId": "7fa2515d-0514-44d8-b610-81983c6be8ab"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 6,
+      "requestId": "b7a496b5-32a5-4266-be4a-70ce6889cdbc"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 12,
+      "apiLatencyMs": 10,
+      "requestId": "e0114834-85f0-438e-801c-f082c028b632"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 8,
+      "requestId": "75d7ba7c-be4e-4584-a76e-10e7915fad60"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 6,
+      "requestId": "1a223c30-db73-423c-a0d3-2fb4d58db39a"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 8,
+      "requestId": "39ad250e-70ee-40b9-8f3f-8ff5c5b07037"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "7d30ddc4-aaa8-478f-ac67-cddfbb3f6166"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "cb096939-e176-439c-930c-775089579ca9"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 8,
+      "requestId": "5331ff07-72bf-4550-b571-428fa1a48cfc"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 11,
+      "apiLatencyMs": 10,
+      "requestId": "14bcd022-c06d-4510-8981-ca1cdb9a4907"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "5312cf5c-0c24-45e6-837e-0ef06ed6c9d7"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 12,
+      "apiLatencyMs": 11,
+      "requestId": "573977c6-5ca6-49a3-8964-879fc661f65f"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "c5645068-ad8a-4c12-a80a-f2ae05279f53"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "4aa1b29f-d411-4c90-a981-20c887b3f1d7"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "64548406-5cfe-4220-b2e4-c8dfdc16d08c"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "ee1f1a8d-f0d7-4453-88ec-bd4aa6872db7"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 7,
+      "requestId": "7402b826-6913-4188-936d-be5c953aae85"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 11,
+      "apiLatencyMs": 10,
+      "requestId": "e4b2b4cd-e097-48cd-9ed4-22c814a30e1b"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "41133b5c-39a6-47e4-9642-eb762e990b50"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "81dbbece-2ae8-400b-9290-81cd3c6a82b9"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 12,
+      "apiLatencyMs": 11,
+      "requestId": "bda533b9-9470-4c3d-9687-11a34f849ce0"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "23a91f64-32a3-4ff0-a8d3-4e9453dd6218"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 7,
+      "requestId": "85930989-c2e1-4b34-b815-027d401cc5e0"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "ad65a8ad-d509-4db3-9364-9451804e3385"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "0037e087-e960-4cf2-a712-b1302f0e6083"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "c77f4aad-b1a8-446f-a08f-43d37f7c1216"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "b81597f4-0709-42b0-931e-2d95e39be786"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "8c98c22e-3376-4f6b-bd48-4269dd6d9daf"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "0f62431f-9fbf-4c40-8a5e-ecfb9518d753"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "dcf6f9b3-60d3-45d9-9174-a579b7b3b8bb"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "bda0ecfd-597c-4432-91f6-88c8e5f9355d"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "ccfa2643-6dfc-4ff5-9a11-8ec273b48809"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "9edcd23a-f656-4c23-86ab-c1bfb2633101"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "ad480d18-8ee6-4c99-9ac3-df3f6218f55d"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 11,
+      "apiLatencyMs": 10,
+      "requestId": "99705294-3cf2-4bea-8d86-12c74a57e058"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "ac7364af-9c71-44e3-a741-cf24830603a9"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "0c0614fb-5b00-44d5-80b8-fa023ca8c739"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "02a0aa8a-3cf2-4217-ba00-f05f0749b72f"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "ef2218d4-a08e-4c59-b5ab-3ddcfdf47565"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "d3e68961-e38c-41dd-8e05-198422913d16"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "0a6a9f75-ba40-475c-931a-d6d992374b03"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "3601757d-a722-49a6-85a1-0191665102f8"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "88763503-6c0a-41d3-b007-3d7e794d65cc"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "348477c7-b78c-41c1-ace9-41d41186af74"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "d3ebc42c-5c93-4d08-bc3a-8517649c8935"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "f22487a3-1130-44bc-b061-85fcb8d364da"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "a47a4d58-54cb-4485-8e08-a356c75f8320"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 11,
+      "apiLatencyMs": 10,
+      "requestId": "c47b60c2-86cd-435f-9c7c-a6935b8f2254"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "b701cc49-575f-41cc-90dc-ea02cf19a08f"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "3704d164-bec1-4ae8-8f85-1a22f54e4363"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 7,
+      "requestId": "22a00933-d0ae-4259-888f-0503768bb68a"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "45664c06-9513-4d9a-aaf4-c0fa66ba123d"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "227a6fb2-478c-4b37-b37f-ba41df6cafc1"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "2c69e143-1efc-4912-87dd-772cba7acd35"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "5d321e3a-2fe4-4b48-98d4-681603c2bd28"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "d2ad1594-2711-49e8-bdf4-c70d539b2679"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "78e4f7d9-5501-45d9-b2bb-835ab47ea620"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 9,
+      "requestId": "89718f36-2b1c-4246-95f3-e04f1355b036"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "ac6d3750-4b84-41dc-8aa7-d4321fec7562"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "63f99a54-4255-4a81-b8c1-00854650a85e"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 11,
+      "apiLatencyMs": 10,
+      "requestId": "8ab3a3d7-d7cb-4025-b22f-3ea1d4d9bb50"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 7,
+      "apiLatencyMs": 6,
+      "requestId": "33588f87-ab5e-4de9-bcfb-27d5d7138499"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "91fed8e1-0f4e-4287-8dc9-ceda53c9df30"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "49e97426-e6a8-4aff-a2d6-bfa7ccaa6010"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "ef8dee21-0170-4225-8ba0-98cb81b12e08"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 7,
+      "apiLatencyMs": 6,
+      "requestId": "35995457-c632-47fd-84fc-222ebf3e5b36"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "82617db6-bd9a-44f8-a704-876a4687fe3c"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "870e8247-519c-42aa-9768-a350a1a74256"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "10b25805-b14c-4434-8ea9-1f12afd045cc"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 7,
+      "apiLatencyMs": 6,
+      "requestId": "895fa957-2b34-415d-9f91-52b91accd7fd"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "92fae64e-8e49-44ca-9c87-e6ae41ea42f7"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "67063a8d-3f9f-4a72-90c5-e88962a692bf"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 7,
+      "apiLatencyMs": 7,
+      "requestId": "e644e6fc-2ad5-4b89-99d5-872991a60ec4"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "29113a89-d998-475e-b009-4049c27a18a7"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "c9d60899-2980-47aa-ae0f-8c08dded0702"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "abbdc268-3e6f-41c8-95ee-01c28bd5c771"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "83b12dbc-9e9a-4451-a3a7-95ce6e3658b2"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 12,
+      "apiLatencyMs": 12,
+      "requestId": "b653dd6b-8b05-43f8-94b3-bbe1e6f411c2"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 11,
+      "apiLatencyMs": 11,
+      "requestId": "e825c1a1-dc62-4666-8efb-87f3953ba921"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 9,
+      "requestId": "a09a7269-a5e6-46ad-beb6-619b420ccd9c"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "a923b2b7-2e7b-4ad7-97b9-10d4bc00abfd"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "953a9d8e-4908-4d89-b3dd-7a7c1a514314"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 6,
+      "apiLatencyMs": 5,
+      "requestId": "d0fe4472-b866-4878-946a-b3f36d765957"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 7,
+      "apiLatencyMs": 6,
+      "requestId": "119e71f3-f4c5-4ad8-b7ef-6493c9220484"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "e45b0b67-ec46-4726-b0c1-afd34ab5ad9c"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 7,
+      "requestId": "ea9fb839-f9f2-4d20-96fe-920dca375d44"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 10,
+      "apiLatencyMs": 10,
+      "requestId": "d467ad80-282c-42a0-a7e9-94817d9515b7"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "8a91c556-6ab8-4101-b4a4-b2d7ecc7eb92"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 7,
+      "requestId": "4bb942cb-b75d-4410-a86d-2ba9f67d13f0"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "95c46e9d-e060-4c7b-890d-6a4b83b1edaf"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "5245b0be-bd0f-4bc2-bb88-30832269e058"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 7,
+      "requestId": "8f7af1e4-140c-4058-9c44-4aca45a155e8"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "3e10c06c-6059-4043-b551-77b539568980"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "8755dd0f-6b93-4188-9e04-fba39f7193f2"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 9,
+      "apiLatencyMs": 8,
+      "requestId": "6889067c-1ea3-4365-a456-f3b232002f10"
+    },
+    {
+      "httpStatus": 200,
+      "status": "ok",
+      "latencyMs": 8,
+      "apiLatencyMs": 8,
+      "requestId": "95945dd8-6230-434b-a317-1b15e1ef98f8"
+    }
+  ]
+}

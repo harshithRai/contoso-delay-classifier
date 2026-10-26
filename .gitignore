@@ -1,0 +1,16 @@
+.venv/
+node_modules/
+.env
+.env.*
+!.env.example
+local.settings.json
+.local/
+artifacts/
+ml/export/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+*.pem
+*.key
+infra/*.parameters.json

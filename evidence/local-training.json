@@ -1,0 +1,99 @@
+{
+  "source": "local-baseline",
+  "datasetSha256": "88446d17b6c5af704aac620803985b8e0be5c9b764bdc266d64cada723aa5680",
+  "selectedBy": "3-fold training CV AUC",
+  "best": {
+    "id": "local-LogisticRegression-2026-10-26",
+    "modelName": "delay-classifier",
+    "algorithm": "LogisticRegression",
+    "datasetRows": 10000,
+    "delayRate": 0.1807,
+    "metrics": {
+      "auc": 0.7429484568490686,
+      "accuracy": 0.831,
+      "precision": 0.6138613861386139,
+      "recall": 0.17174515235457063,
+      "f1": 0.2683982683982684,
+      "confusionMatrix": [
+        [
+          1600,
+          39
+        ],
+        [
+          299,
+          62
+        ]
+      ]
+    },
+    "crossValidationAuc": 0.7566153352731018,
+    "features": [
+      "carrier",
+      "distance_km",
+      "weight_kg",
+      "items",
+      "order_hour",
+      "is_sale_day",
+      "warehouse_backlog",
+      "weather_index"
+    ],
+    "endpointName": null,
+    "deployed": false,
+    "trainedAt": "2026-10-26T16:23:47.212335+00:00",
+    "source": "local-baseline",
+    "trainRows": 8000,
+    "testRows": 2000,
+    "randomSeed": 42
+  },
+  "runnerUp": {
+    "id": "local-RandomForest-2026-10-26",
+    "modelName": "delay-classifier",
+    "algorithm": "RandomForest",
+    "datasetRows": 10000,
+    "delayRate": 0.1807,
+    "metrics": {
+      "auc": 0.731092365961949,
+      "accuracy": 0.771,
+      "precision": 0.3938730853391685,
+      "recall": 0.4986149584487535,
+      "f1": 0.4400977995110024,
+      "confusionMatrix": [
+        [
+          1362,
+          277
+        ],
+        [
+          181,
+          180
+        ]
+      ]
+    },
+    "crossValidationAuc": 0.7386247721759794,
+    "features": [
+      "carrier",
+      "distance_km",
+      "weight_kg",
+      "items",
+      "order_hour",
+      "is_sale_day",
+      "warehouse_backlog",
+      "weather_index"
+    ],
+    "endpointName": null,
+    "deployed": false,
+    "trainedAt": "2026-10-26T16:23:47.212335+00:00",
+    "source": "local-baseline",
+    "trainRows": 8000,
+    "testRows": 2000,
+    "randomSeed": 42
+  },
+  "featureImportance": {
+    "distance_km": 0.11960336601434236,
+    "weather_index": 0.04419626182440155,
+    "carrier": 0.03116419545057385,
+    "is_sale_day": 0.02846543480502115,
+    "weight_kg": 0.011274356534539964,
+    "warehouse_backlog": 0.007243792664603732,
+    "order_hour": 0.0009211075600115803,
+    "items": -0.00014095480826585848
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "platform":{"apiRuntime":"node:22"},
+  "globalHeaders":{
+    "X-Content-Type-Options":"nosniff",
+    "Referrer-Policy":"same-origin",
+    "X-Frame-Options":"DENY",
+    "Content-Security-Policy":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+  },
+  "routes":[{"route":"/api/*","headers":{"Cache-Control":"no-store"}}]
+}

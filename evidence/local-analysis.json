@@ -1,0 +1,68 @@
+{
+  "source": "CSV analysis; Azure SQL evidence pending",
+  "rows": 10000,
+  "delayed": 1807,
+  "delayRate": 0.1807,
+  "groups": {
+    "carrier": [
+      {
+        "carrier": "BlueDart",
+        "count": 3021,
+        "sum": 398,
+        "mean": 0.13174445547831845
+      },
+      {
+        "carrier": "Delhivery",
+        "count": 3428,
+        "sum": 562,
+        "mean": 0.16394399066511084
+      },
+      {
+        "carrier": "EcomExp",
+        "count": 1988,
+        "sum": 400,
+        "mean": 0.2012072434607646
+      },
+      {
+        "carrier": "IndiaPost",
+        "count": 1563,
+        "sum": 447,
+        "mean": 0.28598848368522073
+      }
+    ],
+    "is_sale_day": [
+      {
+        "is_sale_day": 0,
+        "count": 8852,
+        "sum": 1438,
+        "mean": 0.1624491640307275
+      },
+      {
+        "is_sale_day": 1,
+        "count": 1148,
+        "sum": 369,
+        "mean": 0.32142857142857145
+      }
+    ],
+    "backlog_bucket": [
+      {
+        "backlog_bucket": "30\u201349",
+        "count": 8873,
+        "sum": 1580,
+        "mean": 0.17806829708103233
+      },
+      {
+        "backlog_bucket": "50+",
+        "count": 723,
+        "sum": 169,
+        "mean": 0.23374827109266944
+      },
+      {
+        "backlog_bucket": "under 30",
+        "count": 404,
+        "sum": 58,
+        "mean": 0.14356435643564355
+      }
+    ]
+  }
+}
