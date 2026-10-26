@@ -79,7 +79,9 @@ If loading fails before the commit, it rolls back. If a later evidence query fai
 .venv/bin/python ml/collect_azure.py
 ```
 
-Training uses 30 minutes and weighted AUC, with cross-validation only on the 8,000 training rows. The remaining 2,000 rows are reserved for test evaluation. Open the recorded Studio job link and capture the leaderboard, metrics, explanation and confusion matrix. The collector downloads the top two completed candidates' `outputs/mlflow-model` artifacts, registers them, and submits evaluation jobs in their own conda environments. Review job status/logs if a candidate artifact/environment differs from the current AutoML export layout; no fabricated metrics are substituted.
+Training uses 30 minutes and weighted AUC, with cross-validation only on the 8,000 training rows. The remaining 2,000 rows are reserved for test evaluation. Open the recorded Studio job link and capture the leaderboard, metrics, explanation and confusion matrix. The collector downloads the top two completed candidates' `outputs/mlflow-model` artifacts, registers them, and evaluates them in the Microsoft base image recorded by the model (or its conda export as fallback). It accepts AutoML's DataFrame probability output and logs the report as an MLflow artifact. Jobs are checkpointed so rerunning resumes successful/pending evaluations.
+
+AutoML can continue its separate explanation job after the parent finishes. If this occupies the only node, wait or provision a temporary small 0–1-node evaluation cluster within quota/budget and set `AZURE_ML_EVALUATION_COMPUTE` to its name. Delete that temporary cluster after evaluation.
 
 Actual per-class results are written to `artifacts/azure/model_runs.json` and `evidence/azure-training.json`. Review best/runner-up comparison and update the README's cloud results. The local model binaries are never uploaded as AutoML evidence.
 
@@ -110,7 +112,7 @@ Endpoint Test tab input shape (copy both low/high-risk orders from the portal pr
 {"input_data":{"columns":["carrier","distance_km","weight_kg","items","order_hour","is_sale_day","warehouse_backlog","weather_index"],"index":[0],"data":[["IndiaPost",5500,12,7,22,1,65,0.85]]}}
 ```
 
-The API accepts Azure AutoML class arrays such as `[0]`/`[1]`; verify the actual endpoint's response contract in Test. Never put the key in frontend code.
+The actual endpoint returned boolean arrays `[false]`/`[true]`. The API maps these and integer class arrays to the expected labels. Verify your endpoint's real contract in Test. Never put the key in frontend code.
 
 ## 6. Publish the repository and deploy the portal
 

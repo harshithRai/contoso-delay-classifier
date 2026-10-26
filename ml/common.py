@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
@@ -19,8 +20,8 @@ def split(frame):
 
 def evaluate(model, test):
     x, y = test[FEATURES], test.delayed
-    prediction = model.predict(x)
-    probabilities = model.predict_proba(x)[:, list(model.classes_).index(1)]
+    prediction = np.asarray(model.predict(x)).reshape(-1)
+    probabilities = np.asarray(model.predict_proba(x))[:, list(model.classes_).index(1)]
     return {
         'auc': float(roc_auc_score(y, probabilities)), 'accuracy': float(accuracy_score(y, prediction)),
         'precision': float(precision_score(y, prediction, pos_label=1, zero_division=0)),

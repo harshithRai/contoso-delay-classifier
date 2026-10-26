@@ -6,12 +6,12 @@ const {summarize}=require('./statistics.cjs');
 const {makeStore}=require('./store.cjs');
 const json=(status,body)=>({status,headers:{'Content-Type':'application/json','Cache-Control':'no-store'},body});
 function parseModel(value) {
-  // Azure AutoML MLflow endpoints normally return [0] or [1]. Local scorer uses {prediction:[...]}.
-  if(value===0 || value===1) return value===1 ? 'delayed' : 'on time';
+  // The deployed AutoML model returns [false]/[true]; integer classes are also supported.
+  if(value===0 || value===1 || typeof value==='boolean') return Number(value)===1 ? 'delayed' : 'on time';
   if(typeof value==='string') { try { return parseModel(JSON.parse(value)); } catch { throw Error('Invalid model response'); } }
   const item=Array.isArray(value) ? value[0] : (value?.prediction?.[0] ?? value?.predictions?.[0]);
   const label=item && typeof item==='object' ? (item.label ?? item.delayed) : item;
-  if(![0,1,'0','1'].includes(label)) throw Error('Invalid model response');
+  if(![0,1,'0','1',false,true].includes(label)) throw Error('Invalid model response');
   return Number(label)===1 ? 'delayed' : 'on time';
 }
 function createService({env=process.env,store,fetcher=fetch,now=Date.now,clock=()=>performance.now()}={}) {

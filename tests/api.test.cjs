@@ -6,6 +6,12 @@ const {LocalStore}=require('../api/shared/store.cjs');const {summarize,percentil
 const input={userId:'test-user',carrier:'IndiaPost',distance_km:2100,weight_kg:6,items:3,order_hour:19,is_sale_day:1,warehouse_backlog:55,weather_index:.4};
 const env={APP_MODE:'local',ML_ENDPOINT_URL:'http://127.0.0.1:7072/score',ML_ENDPOINT_KEY:'local-test'};
 function fixture(t,fetcher=async()=>({ok:true,json:async()=>[1]})) {const dir=mkdtempSync(path.join(os.tmpdir(),'contoso-test-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));const store=new LocalStore(dir);return {store,service:createService({env,store,fetcher})};}
+test('actual Azure boolean class responses map to the correct delivery labels',()=>{
+  assert.equal(parseModel([false]),'on time');assert.equal(parseModel([true]),'delayed');
+  assert.equal(parseModel('[false]'),'on time');assert.equal(parseModel('[true]'),'delayed');
+  assert.equal(parseModel(false),'on time');assert.equal(parseModel(true),'delayed');
+  assert.throws(()=>parseModel([null]));assert.throws(()=>parseModel([2]));
+});
 test('successful request maps class, persists, and supports partitioned point read',async t=>{
   const {service,store}=fixture(t);const r=await service.predict(input);
   assert.equal(r.status,200);assert.equal(r.body.label,'delayed');assert.equal(r.body.coldStart,true);

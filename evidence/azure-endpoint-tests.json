@@ -1,0 +1,33 @@
+{
+  "source": "Azure ML managed online deployment blue",
+  "vmSize": "Standard_D2as_v4",
+  "instanceCount": 1,
+  "results": [
+    {
+      "input": {
+        "carrier": "BlueDart",
+        "distance_km": 150,
+        "weight_kg": 0.5,
+        "items": 1,
+        "order_hour": 10,
+        "is_sale_day": 0,
+        "warehouse_backlog": 12,
+        "weather_index": 0.05
+      },
+      "rawResponse": "[false]"
+    },
+    {
+      "input": {
+        "carrier": "IndiaPost",
+        "distance_km": 5500,
+        "weight_kg": 12,
+        "items": 7,
+        "order_hour": 22,
+        "is_sale_day": 1,
+        "warehouse_backlog": 65,
+        "weather_index": 0.85
+      },
+      "rawResponse": "[true]"
+    }
+  ]
+}

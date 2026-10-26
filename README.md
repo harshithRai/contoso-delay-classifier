@@ -2,9 +2,9 @@
 
 A delay classifier with a web portal, a validating API, request tracing, and service health. The Azure design uses SQL → AutoML → a managed endpoint, with Functions and Cosmos DB behind a Static Web App.
 
-**Current status:** Azure infrastructure and the portal/Functions are deployed. SQL contains all 10,000 rows; the SQL view was exported for training. Live validation, Cosmos persistence, point lookup and health metrics passed a cloud smoke test. AutoML job `gentle_iron_9ymzptm5gm` is running. The trial spending limit is enabled and a ₹500 resource-group budget alert is active. **Model endpoint, live predictions, full cloud tests and the demo video remain pending.** This is not yet a completed submission.
+**Current status:** Azure infrastructure and the portal/Functions are deployed. SQL contains all 10,000 rows; its training view was exported. AutoML job `gentle_iron_9ymzptm5gm` completed ten candidates. The winner's endpoint is deployed on one `Standard_D2as_v4` instance and returned both classes in direct endpoint tests. The first held-out evaluation completed; the second is running. Live validation, Cosmos persistence, point lookup and health passed a cloud smoke test. The trial spending limit is enabled and a ₹500 budget alert is active. **Portal/model integration, full cloud tests and the demo video remain pending.** This is not yet a completed submission.
 
-**Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net) — model deployment pending.
+**Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net) — model integration in progress.
 
 **Repository:** [harshithRai/contoso-delay-classifier](https://github.com/harshithRai/contoso-delay-classifier). Author: Harshith Rai.
 
@@ -117,7 +117,7 @@ Logistic regression       Random forest
 
 **What does a missed delay cost, and is the threshold right?** A false on-time prediction can prevent a proactive customer update and lead to complaints, rescheduling, refunds or expedited shipping. The default logistic-regression rule misses 299 of 361 actual delays, so it is a reproducible starting point rather than an adequate operating threshold for a delay-alert service. Before a real rollout, use training-only out-of-fold/validation probabilities to choose a lower threshold against an explicit false-negative/false-positive cost ratio; report its performance once on the held-out test set. Do not tune on that test set. The portal displays a class and does not invent a confidence percentage.
 
-The cloud path uses the required AutoML classification job, primary metric `AUC_weighted`, 30-minute limit, and a 0–1-node compute cluster. The SQL export and AutoML submission have run. `collect_azure.py` ranks completed training candidates and evaluates both on the held-out SQL export inside each downloaded MLflow model's conda environment. It records positive-class metrics and confusion matrices, rather than relabeling weighted averages as delayed-class scores. `deploy_azure.py` deploys the winner to a one-instance key-authenticated endpoint. Model collection and endpoint deployment are pending.
+The cloud path uses AutoML classification, primary metric `AUC_weighted`, a 30-minute limit and a 0–1-node training cluster. `collect_azure.py` ranks completed candidates and evaluates the best two on the untouched SQL export, reusing the model's recorded Microsoft runtime image, with its conda export as fallback. It records delayed-class metrics and confusion matrices, rather than relabeling weighted averages. Evaluation jobs are checkpointed and reports are retrieved through MLflow artifacts. A temporary 0–1-node `Standard_DS2_v2` cluster avoids blocking behind AutoML's separate explanation job. The winner is deployed on one `Standard_D2as_v4` instance, using a separate available quota family. Actual endpoint responses are `[false]` / `[true]`; the API maps these to on-time/delayed labels.
 
 ## Part C — Cosmos design
 
