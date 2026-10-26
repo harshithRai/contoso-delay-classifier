@@ -4,7 +4,7 @@
 
 - Supplied CSV: 10,000 rows, 1,807 delayed. SHA-256 recorded in README and the training report.
 - Real local training: LogisticRegression and balanced RandomForest with fold-local preprocessing, seed 42, 3-fold training CV, untouched 2,000-row test split.
-- Node behavioral suite: validation does not call the model; class parsing; persistent success/failure/timeout logs; unavailable storage returns 503; user-partition lookup isolation; median/p95/error-rate arithmetic; idle marker; separate time windows.
+- Node behavioral suite: 11 passing tests for validation without model invocation, class parsing, persistent success/failure/timeout logs, unavailable storage, partial finalization failure, user-partition lookup isolation, median/p95/error-rate arithmetic, idle marker retention and separate time windows.
 - Model report check: class metrics agree with confusion matrices and local runs are explicitly not deployed.
 - All Python files parsed with `ast.parse`.
 - `npm ci`/installation of API package: Azure Cosmos SDK installed; dependency audit reported zero known vulnerabilities at installation time. SDK type definitions inspected for transactional batch and Patch operation compatibility.
@@ -14,6 +14,8 @@
 - Local wrong-key test: 10 calls, all tracked errors; recovery cohort: 120 calls, no errors.
 
 The saved JSON reports contain the request IDs for each test cohort. Local logs and model binaries are ignored and retained only in this workspace.
+
+The public repository was created by the user at https://github.com/harshithRai/contoso-delay-classifier. Source publication is pending GitHub integration access: both the saved Git credential and connector writes returned HTTP 403. The connector reports no GitHub App installation for the target account. The complete reviewed source is committed locally and is ready to publish once access is granted.
 
 ## Not executed
 
