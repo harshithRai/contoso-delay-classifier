@@ -1,0 +1,87 @@
+{
+  "url": "https://polite-flower-00190c500.1.azurestaticapps.net",
+  "input": {
+    "userId": "fc7eeec6-13f6-4936-b5cd-e61a23d52039",
+    "carrier": "IndiaPost",
+    "distance_km": 5500,
+    "weight_kg": 12,
+    "items": 7,
+    "order_hour": 22,
+    "is_sale_day": 1,
+    "warehouse_backlog": 65,
+    "weather_index": 0.85
+  },
+  "response": {
+    "requestId": "b5548093-d689-49e5-84db-42e7d871ea7e",
+    "userId": "fc7eeec6-13f6-4936-b5cd-e61a23d52039",
+    "label": "delayed",
+    "latencyMs": 736,
+    "modelLatencyMs": 448,
+    "status": "ok",
+    "error": null,
+    "coldStart": true
+  },
+  "cosmosPointRead": {
+    "id": "b5548093-d689-49e5-84db-42e7d871ea7e",
+    "userId": "fc7eeec6-13f6-4936-b5cd-e61a23d52039",
+    "type": "request",
+    "at": "2026-10-26T19:34:23.962Z",
+    "input": {
+      "carrier": "IndiaPost",
+      "distance_km": 5500,
+      "weight_kg": 12,
+      "items": 7,
+      "order_hour": 22,
+      "is_sale_day": 1,
+      "warehouse_backlog": 65,
+      "weather_index": 0.85
+    },
+    "label": "delayed",
+    "modelLatencyMs": 448,
+    "totalLatencyMs": 736,
+    "status": "ok",
+    "httpStatus": 200,
+    "error": null,
+    "modelVersion": "contoso-delay:202610261835050",
+    "coldStart": true,
+    "ttl": 2592000,
+    "databaseWriteMs": 289,
+    "_rid": "lXJtAJRyQZkDAAAAAAAAAA==",
+    "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZkDAAAAAAAAAA==/",
+    "_etag": "\"03007492-0000-2000-0000-6adfab400000\"",
+    "_attachments": "attachments/",
+    "_ts": 1793043264
+  },
+  "health": {
+    "requests15m": 1,
+    "requestsAllTime": 2,
+    "successfulSamples": 1,
+    "p50Ms": 736,
+    "p95Ms": 736,
+    "slowestMs": 736,
+    "errorRatePercent": 0,
+    "errors15m": 0,
+    "invalid15m": 0,
+    "lastColdStart": {
+      "at": "2026-10-26T19:34:23.962Z",
+      "latencyMs": 736
+    },
+    "last50": [
+      {
+        "at": "2026-10-26T18:36:54.173Z",
+        "latencyMs": 317,
+        "status": "invalid"
+      },
+      {
+        "at": "2026-10-26T19:34:23.962Z",
+        "latencyMs": 736,
+        "status": "ok"
+      }
+    ],
+    "computedAt": "2026-10-26T19:34:25.820Z",
+    "percentileMethod": "p50 median; p95 nearest rank; successful requests among last 100",
+    "mode": "azure",
+    "modelVersion": "contoso-delay:202610261835050",
+    "errorThresholdPercent": 5
+  }
+}

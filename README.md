@@ -2,9 +2,9 @@
 
 A delay classifier with a web portal, a validating API, request tracing, and service health. The Azure design uses SQL → AutoML → a managed endpoint, with Functions and Cosmos DB behind a Static Web App.
 
-**Current status:** Azure infrastructure and the portal/Functions are deployed. SQL contains all 10,000 rows; its training view was exported. AutoML job `gentle_iron_9ymzptm5gm` completed ten candidates. The winner's endpoint is deployed on one `Standard_D2as_v4` instance and returned both classes in direct endpoint tests. The first held-out evaluation completed; the second is running. Live validation, Cosmos persistence, point lookup and health passed a cloud smoke test. The trial spending limit is enabled and a ₹500 budget alert is active. **Portal/model integration, full cloud tests and the demo video remain pending.** This is not yet a completed submission.
+**Current status:** The Azure SQL → AutoML → endpoint → Functions → Cosmos pipeline is working. A live portal API prediction returned HTTP 200 in 736 ms, and its matching Cosmos point read and health API were verified. Both held-out model evaluations are saved. The trial spending limit remains enabled and a ₹500 budget alert is active. **Demo video and Azure load/failure tests are pending.**
 
-**Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net) — model integration in progress.
+**Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net).
 
 **Repository:** [harshithRai/contoso-delay-classifier](https://github.com/harshithRai/contoso-delay-classifier). Author: Harshith Rai.
 
@@ -88,7 +88,7 @@ These results were verified by running `sql/analysis.sql` against the deployed *
 | 30–49 | 8,873 | 1,580 | 17.81% |
 | 50+ | 723 | 169 | 23.37% |
 
-Among these grouped comparisons, sale days show the largest relative increase: about 1.98× the normal-day rate, versus about 1.63× for the highest versus lowest backlog bucket. Carrier differences are also substantial (28.60% versus 13.17%). These associations do not prove causation: distances, weather and carrier choice may be related. Multivariable modeling can rank features differently from these separate comparisons.
+Sale days have about 1.98× the normal-day delay rate. The highest versus lowest backlog bucket differs by about 1.63×, and the highest versus lowest carrier rate by about 2.17× (28.60% versus 13.17%). These associations do not prove causation: distances, weather and carrier choice may be related. Multivariable modeling can rank features differently from these separate comparisons.
 
 The loader inserts batches of 1,000 using Entra tokens and strict TLS. It uses ODBC Driver 18 when available, or parameterized OPENJSON batches through Python TDS otherwise. It refuses to append into an existing nonempty table, preventing accidental duplicate imports. Training export explicitly reads `ml.DelayTraining`, whose only columns are the eight features and `delayed`; the identity column cannot leak into training.
 
@@ -118,6 +118,26 @@ Logistic regression       Random forest
 **What does a missed delay cost, and is the threshold right?** A false on-time prediction can prevent a proactive customer update and lead to complaints, rescheduling, refunds or expedited shipping. The default logistic-regression rule misses 299 of 361 actual delays, so it is a reproducible starting point rather than an adequate operating threshold for a delay-alert service. Before a real rollout, use training-only out-of-fold/validation probabilities to choose a lower threshold against an explicit false-negative/false-positive cost ratio; report its performance once on the held-out test set. Do not tune on that test set. The portal displays a class and does not invent a confidence percentage.
 
 The cloud path uses AutoML classification, primary metric `AUC_weighted`, a 30-minute limit and a 0–1-node training cluster. `collect_azure.py` ranks completed candidates and evaluates the best two on the untouched SQL export, reusing the model's recorded Microsoft runtime image, with its conda export as fallback. It records delayed-class metrics and confusion matrices, rather than relabeling weighted averages. Evaluation jobs are checkpointed and reports are retrieved through MLflow artifacts. A temporary 0–1-node `Standard_DS2_v2` cluster avoids blocking behind AutoML's separate explanation job. The winner is deployed on one `Standard_D2as_v4` instance, using a separate available quota family. Actual endpoint responses are `[false]` / `[true]`; the API maps these to on-time/delayed labels.
+
+## Measured Azure AutoML results
+
+AutoML completed ten candidates. Selection uses training-CV weighted AUC; the held-out SQL export has 2,000 rows, including 361 delayed orders. Its row ordering differs from the local CSV split, so local/cloud test metrics are not a controlled comparison.
+
+| Azure model | CV AUC | Test AUC | Accuracy | Precision (late) | Recall (late) | F1 (late) |
+|---|---:|---:|---:|---:|---:|---:|
+| PreFittedSoftVotingClassifier — deployed | 0.7439 | 0.7240 | 0.8215 | 0.8333 | 0.0139 | 0.0272 |
+| StackEnsembleClassifier | 0.7438 | 0.7257 | 0.8275 | 0.5889 | 0.1468 | 0.2350 |
+
+Confusion matrices (actual rows/predicted columns: on-time, delayed):
+
+```text
+Voting: [[1638, 1], [356, 5]]
+Stack:  [[1602, 37], [308, 53]]
+```
+
+The selected model misses 356 of 361 delays at its default decision rule. Its 82.15% accuracy is close to the 81.95% always-on-time baseline. High precision comes from only six positive predictions. The stack model catches more delays, but it was not selected using the held-out set: the CV AUC winner was fixed first. The CV scores differ by only 0.00008 and do not establish a meaningful performance difference. Threshold tuning on training-only validation data is needed before a business rollout.
+
+Azure-held-out permutation importance ranks distance, weather, carrier and sale day highest. Raw metrics, confusion matrices, run IDs, feature importance and deployment metadata are in `evidence/azure-training.json`. Both actual model documents were upserted into Cosmos DB. A live successful prediction and matching Cosmos document are in `evidence/azure-live-prediction.json`.
 
 ## Part C — Cosmos design
 
