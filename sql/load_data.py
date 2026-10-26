@@ -17,11 +17,19 @@ def main():
         for filename in ['create_table.sql','view.sql']:
             for batch in re.split(r'^GO\s*$',(ROOT/'sql'/filename).read_text(),flags=re.M):
                 if batch.strip():cursor.execute(batch)
-        count=cursor.execute('SELECT COUNT(*) FROM dbo.OrderHistory').fetchval()
+        cursor.execute('SELECT COUNT(*) FROM dbo.OrderHistory');count=cursor.fetchone()[0]
         if count: raise RuntimeError(f'Table contains {count} rows. Import stopped to prevent duplicates; inspect it before retrying.')
-        cursor.fast_executemany=True
         values=[(r['carrier'],int(r['distance_km']),float(r['weight_kg']),int(r['items']),int(r['order_hour']),int(r['is_sale_day']),int(r['warehouse_backlog']),float(r['weather_index']),int(r['delayed'])) for r in rows]
-        for start in range(0,len(values),1000):cursor.executemany(f"INSERT INTO dbo.OrderHistory ({','.join(expected)}) VALUES (?,?,?,?,?,?,?,?,?)",values[start:start+1000])
+        if hasattr(cursor,'fast_executemany'):
+            cursor.fast_executemany=True
+            for start in range(0,len(values),1000):cursor.executemany(f"INSERT INTO dbo.OrderHistory ({','.join(expected)}) VALUES (?,?,?,?,?,?,?,?,?)",values[start:start+1000])
+        else:
+            # Parameterized OPENJSON batches avoid one network round trip per row.
+            definitions="carrier NVARCHAR(20), distance_km INT, weight_kg DECIMAL(6,2), items INT, order_hour TINYINT, is_sale_day BIT, warehouse_backlog INT, weather_index DECIMAL(5,3), delayed BIT"
+            statement=f"INSERT INTO dbo.OrderHistory ({','.join(expected)}) SELECT {','.join(expected)} FROM OPENJSON(%s) WITH ({definitions})"
+            for start in range(0,len(values),1000):
+                payload=json.dumps([dict(zip(expected,row)) for row in values[start:start+1000]])
+                cursor.execute(statement,(payload,))
         cn.commit()
         queries=(ROOT/'sql/analysis.sql').read_text().split(';');results=[]
         for q in queries:

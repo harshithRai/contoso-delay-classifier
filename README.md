@@ -2,7 +2,7 @@
 
 A delay classifier with a web portal, a validating API, request tracing, and service health. The Azure design uses SQL → AutoML → a managed endpoint, with Functions and Cosmos DB behind a Static Web App.
 
-**Current status:** the complete local application runs, two local models were trained on the supplied data, and local load/failure tests were executed. **Azure deployment, Azure evidence, and the demo video are pending.** No Azure resources were created because a subscription is not available. This is not yet a completed submission.
+**Current status:** the complete local application runs, two local models were trained on the supplied data, and local load/failure tests were executed. Azure provisioning has started on the trial subscription, with its spending limit enabled and a ₹500 resource-group budget alert created. **Cloud training, live prediction, Azure evidence, and the demo video are pending.** This is not yet a completed submission.
 
 **Repository:** [harshithRai/contoso-delay-classifier](https://github.com/harshithRai/contoso-delay-classifier). Author: Harshith Rai.
 
@@ -88,7 +88,7 @@ These are **CSV-derived results**, saved in `evidence/local-analysis.json`. Run 
 
 Among these grouped comparisons, sale days show the largest relative increase: about 1.98× the normal-day rate, versus about 1.63× for the highest versus lowest backlog bucket. Carrier differences are also substantial (28.60% versus 13.17%). These associations do not prove causation: distances, weather and carrier choice may be related. Multivariable modeling can rank features differently from these separate comparisons.
 
-The loader inserts batches of 1,000 using Entra tokens and ODBC Driver 18. It refuses to append into an existing nonempty table, preventing accidental duplicate imports. Training export explicitly reads `ml.DelayTraining`, whose only columns are the eight features and `delayed`; the identity column cannot leak into training.
+The loader inserts batches of 1,000 using Entra tokens and strict TLS. It uses ODBC Driver 18 when available, or parameterized OPENJSON batches through Python TDS otherwise. It refuses to append into an existing nonempty table, preventing accidental duplicate imports. Training export explicitly reads `ml.DelayTraining`, whose only columns are the eight features and `delayed`; the identity column cannot leak into training.
 
 ## Part B — measured local model results
 
@@ -170,13 +170,13 @@ No real ML/Cosmos keys are included. `.env`, local settings, model binaries, req
 
 Browser IDs provide anonymous request grouping, not user authentication. The sample uses synthetic order features, no PII, and a public prediction route. Before production, add authentication where appropriate, rate limits/abuse protection, quotas, data-access authorization, alerting and bounded/rolled-up telemetry queries. The local file store supports this development workflow, not distributed hosting.
 
-Use one dedicated resource group and create a budget alert. Budget alerts **do not cap spending**. The ML endpoint remains billable while idle; delete it after testing/recording and coordinate any required grading availability. Deleting it disables predictions until redeployment, so the portal cannot remain fully working after cleanup. Retain the group until grading only if required; delete it afterward. No automated cleanup has been run here because there are no project Azure resources.
+Use one dedicated resource group and create a budget alert. Budget alerts **do not cap spending**. This deployment uses trial credits with the subscription spending limit enabled; no paid-plan upgrade is authorized. The ML endpoint remains billable while idle; delete it after testing/recording and coordinate any required grading availability. Deleting it disables predictions until redeployment, so the portal cannot remain fully working after cleanup. Retain the group until grading only if required; delete it afterward. Cleanup has not run while provisioning is in progress.
 
 ## Reflection and remaining work
 
 The hardest design issue is truthful observability: validation failures must not inflate system error rate, all-time counts must survive log TTL, and a successful model answer must not be presented as durably tracked if storage fails. With more time, I would tune the operating threshold from validation costs, evaluate calibration, add confidence intervals and drift monitoring, and instrument full client/server spans.
 
-Before submission: create/activate the Azure subscription, execute the cloud runbook, collect SQL/AutoML/Cosmos evidence and actual RU charges, run Azure load/failure tests, record the 3–5 minute video, and fill in the remaining submission URLs. Cloud region/VM quota and deployed behavior are still unverified. Code review and local tests cannot replace those steps.
+Remaining: finish the cloud runbook, collect SQL/AutoML/Cosmos evidence and actual RU charges, run Azure load/failure tests, record the 3–5 minute video, and fill in the remaining submission URLs. Central India CPU quota was checked before provisioning; deployed behavior remains unverified. Code review and local tests cannot replace those steps.
 
 ## References
 

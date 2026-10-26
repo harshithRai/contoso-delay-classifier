@@ -1,10 +1,10 @@
 # Azure deployment runbook
 
-Cloud steps below have not run in this workspace. Start only after an Azure subscription is active. Account creation/payment/terms are completed by the account owner. Use [Azure account setup](https://azure.microsoft.com/en-us/free/) and check eligibility/terms directly; no credit or quota availability is assumed.
+Cloud provisioning is underway in this workspace on an active trial subscription. This reusable runbook describes the full process; the README records which steps have actually completed. Account creation/payment/terms are completed by the account owner. Use [Azure account setup](https://azure.microsoft.com/en-us/free/) and check eligibility/terms directly; no credit or quota availability is assumed for a different account.
 
 ## 1. Tools, login and scope
 
-Install the official [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli), Microsoft ODBC Driver 18 (for SQL), Python 3.10/3.11, Node 22, and Git. A cloud workstation/Cloud Shell can be used if local tools are unavailable. The deployment identity needs resource creation plus the ability to list Cosmos/ML keys and update SWA settings.
+Install the official [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli), Python 3.10/3.11, Node 22, and Git. For SQL, the loader uses Microsoft ODBC Driver 18 when installed, or the TLS-enabled Python TDS driver from `requirements-azure.txt` otherwise. A cloud workstation/Cloud Shell can be used if local tools are unavailable. The deployment identity needs resource creation plus the ability to list Cosmos/ML keys and update SWA settings.
 
 ```bash
 az login
