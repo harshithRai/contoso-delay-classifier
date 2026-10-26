@@ -4,7 +4,7 @@ A delay classifier with a web portal, a validating API, request tracing, and ser
 
 **Current status:** The Azure SQL → AutoML → endpoint → Functions → Cosmos pipeline is working. Live predictions, matching Cosmos point reads, both held-out model evaluations, SQL analyses and Cosmos query charges are verified. The Azure load test completed 100 requests at concurrency 5: 98 successes, two tracked errors, client p50 851 ms and p95 1,378 ms. Actual Azure screenshots are in `screenshots/`. Training clusters are deleted; the live endpoint remains active. The trial spending limit remains enabled and a ₹500 budget alert is active. **The demo and deliberate Azure failure/recovery tests are complete.**
 
-**Demo:** [Watch/download the 3:47 MP4](https://github.com/harshithRai/contoso-delay-classifier/releases/download/demo-2026-10-27/contoso-delay-demo.mp4) · [Narration and chapters](demo/README.md). The demo uses actual Brave window frames captured about once per second, edited under computer-generated narration.
+**Demo:** [Watch/download the silent 3:47 MP4](https://github.com/harshithRai/contoso-delay-classifier/releases/download/demo-2026-10-27/contoso-delay-demo-silent.mp4) · [Narration and chapters](demo/README.md). The silent demo uses actual Brave window frames captured about once per second. An optional narrated version and transcript are available on the demo page.
 
 **Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net).
 
@@ -229,7 +229,7 @@ Use one dedicated resource group and create a budget alert. Budget alerts **do n
 
 The hardest design issue is truthful observability: validation failures must not inflate system error rate, all-time counts must survive log TTL, and a successful model answer must not be presented as durably tracked if storage fails. With more time, I would tune the operating threshold from validation costs, evaluate calibration, add confidence intervals and drift monitoring, and instrument full client/server spans.
 
-Remaining: post or edit the single class submission comment using the completed template, then delete the live endpoint after the demo/grading window. SQL/AutoML/Cosmos evidence, RU charges, load/failure/recovery tests and the narrated demo are collected and published. The model limitations remain documented above.
+Remaining: post or edit the single class submission comment using the completed template, then delete the live endpoint after the demo/grading window. SQL/AutoML/Cosmos evidence, RU charges, load/failure/recovery tests and the silent demo are collected and published. The model limitations remain documented above.
 
 ## References
 

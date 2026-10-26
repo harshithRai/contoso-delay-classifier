@@ -33,7 +33,7 @@ Suggested names: `01-azure-sql-count.png`, `02-azure-carrier.png`, `03-azure-sal
 
 **3:15–4:00 — Tradeoffs and cost.** Explain `/userId` for request grouping/point reads and `/modelName` for the small model history. Explain a false negative and threshold tradeoff, what was hardest, and one production improvement. Show budget/cleanup evidence or state the agreed grading window and delete the endpoint afterward.
 
-Record an actual screen session with narration using your usual screen recorder. Verify audio, readable text and sharing permissions before submitting. A script and local screenshots are not a substitute for the requested video.
+Record an actual screen session using your usual screen recorder. Narration is optional; the assignment asks for the visible flow and does not require audio. Verify readable text and sharing permissions before submitting. A script and local screenshots are not a substitute for the requested video.
 
 ## Short oral-answer prompts
 
