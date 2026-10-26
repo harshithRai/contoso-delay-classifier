@@ -15,15 +15,26 @@
 
 The saved JSON reports contain the request IDs for each test cohort. Local logs and model binaries are ignored and retained only in this workspace.
 
-The reviewed source was published publicly at https://github.com/harshithRai/contoso-delay-classifier using GitHub CLI after the user approved browser authorization. The authenticated account was verified as `harshithRai`. Credentials, local request logs, virtual environments and model binaries are excluded from the repository. Azure deployment and its evidence remain pending.
+The reviewed source was published publicly at https://github.com/harshithRai/contoso-delay-classifier using GitHub CLI after the user approved browser authorization. The authenticated account was verified as `harshithRai`. Credentials, local request logs, virtual environments and model binaries are excluded from the repository.
+
+## Azure execution — 27 October 2026 IST
+
+- Azure Resource Manager infrastructure deployment succeeded in Central India; Free Static Web App in East Asia. Trial offer and spending limit `On` verified. ₹500 INR resource-group budget deployment succeeded with 80%/100% notifications. Budget alerts do not cap spending.
+- SQL Entra-token connection with TLS certificate/hostname validation succeeded using Python TDS. The TLS dependency is constrained below pyOpenSSL 26 because Python TDS 1.17 uses the older X509 extension API.
+- Imported 10,000 rows; ran count and all three analyses against Azure SQL. Actual results: `azure-sql-analysis.json`.
+- Exported the SQL training view; saved 8,000 training / 2,000 held-out rows, stratified seed 42. Provenance: `azure-data-provenance.json`.
+- Submitted AutoML job `gentle_iron_9ymzptm5gm`, weighted AUC, 30-minute limit, 10 maximum trials, one concurrent trial; training node allocation verified running.
+- GitHub Actions deployed the portal and managed Node 22 Functions successfully: run `40378675827`. Live URL: https://polite-flower-00190c500.1.azurestaticapps.net.
+- Actual cloud invalid-input request returned HTTP 400, was persisted to Cosmos DB, and retrieved using its `(id, userId)` point address. Global health counted one invalid request and zero system errors. Evidence: `azure-validation.json`.
+- Full resource/deployment metadata without credentials: `azure-deployment.json`.
 
 ## Not executed
 
-- Azure provisioning/SQL connection/import and cloud SQL screenshots.
-- AutoML submission, model collection/evaluation, managed online endpoint deployment.
-- Cosmos service transactions/TTL/point reads or actual RU charge measurement.
-- Static Web Apps/Functions cloud deployment and runtime verification.
+- Cloud SQL portal screenshots (actual SQL query JSON is available).
+- AutoML model collection/evaluation and managed online endpoint deployment; training is running.
+- Two real model-run documents and actual query RU charge measurement. Request transaction and point read have passed.
+- Successful live model prediction.
 - Azure load/failure/cold-start tests, Application Insights instrumentation or cleanup.
 - Demo video recording/publication.
 
-No Azure subscription is available. The cloud runbook and scripts are prepared, but cloud execution remains necessary before claiming assignment completion.
+The remaining cloud steps and demo are required before claiming assignment completion.

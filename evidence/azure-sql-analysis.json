@@ -1,0 +1,70 @@
+{
+  "source": "Azure SQL ml.DelayTraining",
+  "results": [
+    [
+      {
+        "row_count": 10000
+      }
+    ],
+    [
+      {
+        "carrier": "IndiaPost",
+        "orders": 1563,
+        "delayed_orders": 447,
+        "delay_rate_percent": 28.6
+      },
+      {
+        "carrier": "EcomExp",
+        "orders": 1988,
+        "delayed_orders": 400,
+        "delay_rate_percent": 20.12
+      },
+      {
+        "carrier": "Delhivery",
+        "orders": 3428,
+        "delayed_orders": 562,
+        "delay_rate_percent": 16.39
+      },
+      {
+        "carrier": "BlueDart",
+        "orders": 3021,
+        "delayed_orders": 398,
+        "delay_rate_percent": 13.17
+      }
+    ],
+    [
+      {
+        "is_sale_day": false,
+        "orders": 8852,
+        "delayed_orders": 1438,
+        "delay_rate_percent": 16.24
+      },
+      {
+        "is_sale_day": true,
+        "orders": 1148,
+        "delayed_orders": 369,
+        "delay_rate_percent": 32.14
+      }
+    ],
+    [
+      {
+        "backlog_bucket": "50+",
+        "orders": 723,
+        "delayed_orders": 169,
+        "delay_rate_percent": 23.37
+      },
+      {
+        "backlog_bucket": "30 to 49",
+        "orders": 8873,
+        "delayed_orders": 1580,
+        "delay_rate_percent": 17.81
+      },
+      {
+        "backlog_bucket": "under 30",
+        "orders": 404,
+        "delayed_orders": 58,
+        "delay_rate_percent": 14.36
+      }
+    ]
+  ]
+}

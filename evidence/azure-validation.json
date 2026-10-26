@@ -1,0 +1,63 @@
+{
+  "environment": "Azure Static Web Apps / Functions / Cosmos DB",
+  "invalidResponse": {
+    "requestId": "ff9d5731-2ec3-4b4b-919b-c961f5b94f3e",
+    "userId": "fc7eeec6-13f6-4936-b5cd-e61a23d52039",
+    "label": null,
+    "latencyMs": 317,
+    "modelLatencyMs": 0,
+    "status": "invalid",
+    "error": "Choose a supported carrier.",
+    "coldStart": true
+  },
+  "httpStatus": 400,
+  "pointRead": {
+    "id": "ff9d5731-2ec3-4b4b-919b-c961f5b94f3e",
+    "userId": "fc7eeec6-13f6-4936-b5cd-e61a23d52039",
+    "type": "request",
+    "at": "2026-10-26T18:36:54.173Z",
+    "input": {},
+    "label": null,
+    "modelLatencyMs": 0,
+    "totalLatencyMs": 317,
+    "status": "invalid",
+    "httpStatus": 400,
+    "error": "Choose a supported carrier.",
+    "modelVersion": "AutoML deployment pending",
+    "coldStart": true,
+    "ttl": 2592000,
+    "databaseWriteMs": 317,
+    "_rid": "lXJtAJRyQZkCAAAAAAAAAA==",
+    "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZkCAAAAAAAAAA==/",
+    "_etag": "\"03007591-0000-2000-0000-6adf9dc60000\"",
+    "_attachments": "attachments/",
+    "_ts": 1793039814
+  },
+  "health": {
+    "requests15m": 1,
+    "requestsAllTime": 1,
+    "successfulSamples": 0,
+    "p50Ms": null,
+    "p95Ms": null,
+    "slowestMs": 317,
+    "errorRatePercent": 0,
+    "errors15m": 0,
+    "invalid15m": 1,
+    "lastColdStart": {
+      "at": "2026-10-26T18:36:54.173Z",
+      "latencyMs": 317
+    },
+    "last50": [
+      {
+        "at": "2026-10-26T18:36:54.173Z",
+        "latencyMs": 317,
+        "status": "invalid"
+      }
+    ],
+    "computedAt": "2026-10-26T18:36:55.647Z",
+    "percentileMethod": "p50 median; p95 nearest rank; successful requests among last 100",
+    "mode": "azure",
+    "modelVersion": "AutoML deployment pending",
+    "errorThresholdPercent": 5
+  }
+}

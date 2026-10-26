@@ -2,7 +2,9 @@
 
 A delay classifier with a web portal, a validating API, request tracing, and service health. The Azure design uses SQL → AutoML → a managed endpoint, with Functions and Cosmos DB behind a Static Web App.
 
-**Current status:** the complete local application runs, two local models were trained on the supplied data, and local load/failure tests were executed. Azure provisioning has started on the trial subscription, with its spending limit enabled and a ₹500 resource-group budget alert created. **Cloud training, live prediction, Azure evidence, and the demo video are pending.** This is not yet a completed submission.
+**Current status:** Azure infrastructure and the portal/Functions are deployed. SQL contains all 10,000 rows; the SQL view was exported for training. Live validation, Cosmos persistence, point lookup and health metrics passed a cloud smoke test. AutoML job `gentle_iron_9ymzptm5gm` is running. The trial spending limit is enabled and a ₹500 resource-group budget alert is active. **Model endpoint, live predictions, full cloud tests and the demo video remain pending.** This is not yet a completed submission.
+
+**Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net) — model deployment pending.
 
 **Repository:** [harshithRai/contoso-delay-classifier](https://github.com/harshithRai/contoso-delay-classifier). Author: Harshith Rai.
 
@@ -66,7 +68,7 @@ The browser knows only same-origin `/api/*` routes and an anonymous browser ID. 
 
 The original [dataset](https://github.com/UmashankarKH/database_azure/blob/main/contoso_delay_training.csv) contains **10,000 orders and 1,807 delays (18.07%)**. Retrieved upstream Git blob: `54dd4514edf7ff0eb4d313a32f7fa09a629a5a0e`; local CSV SHA-256: `88446d17b6c5af704aac620803985b8e0be5c9b764bdc266d64cada723aa5680`. The source is the [class repository](https://github.com/UmashankarKH/database_azure).
 
-These are **CSV-derived results**, saved in `evidence/local-analysis.json`. Run `sql/analysis.sql` against Azure and retain screenshots before submitting them as SQL evidence.
+These results were verified by running `sql/analysis.sql` against the deployed **Azure SQL** database. Actual service output, including the 10,000-row count, is saved in `evidence/azure-sql-analysis.json`. The earlier CSV comparison remains in `evidence/local-analysis.json`.
 
 | Carrier | Orders | Delays | Delay rate |
 |---|---:|---:|---:|
@@ -115,7 +117,7 @@ Logistic regression       Random forest
 
 **What does a missed delay cost, and is the threshold right?** A false on-time prediction can prevent a proactive customer update and lead to complaints, rescheduling, refunds or expedited shipping. The default logistic-regression rule misses 299 of 361 actual delays, so it is a reproducible starting point rather than an adequate operating threshold for a delay-alert service. Before a real rollout, use training-only out-of-fold/validation probabilities to choose a lower threshold against an explicit false-negative/false-positive cost ratio; report its performance once on the held-out test set. Do not tune on that test set. The portal displays a class and does not invent a confidence percentage.
 
-The cloud path uses the required AutoML classification job, primary metric `AUC_weighted`, 30-minute limit, and a 0–1-node compute cluster. `collect_azure.py` ranks completed training candidates and evaluates both on the held-out SQL export inside each downloaded MLflow model's conda environment. It records positive-class metrics and confusion matrices, rather than relabeling weighted averages as delayed-class scores. `deploy_azure.py` deploys the winner to a one-instance key-authenticated endpoint. Those cloud scripts have not been executed here.
+The cloud path uses the required AutoML classification job, primary metric `AUC_weighted`, 30-minute limit, and a 0–1-node compute cluster. The SQL export and AutoML submission have run. `collect_azure.py` ranks completed training candidates and evaluates both on the held-out SQL export inside each downloaded MLflow model's conda environment. It records positive-class metrics and confusion matrices, rather than relabeling weighted averages as delayed-class scores. `deploy_azure.py` deploys the winner to a one-instance key-authenticated endpoint. Model collection and endpoint deployment are pending.
 
 ## Part C — Cosmos design
 

@@ -1,0 +1,10 @@
+{
+  "source": "Azure SQL ml.DelayTraining",
+  "rows": 10000,
+  "delayRate": 0.1807,
+  "exportedAt": "2026-10-26T18:34:31.682337+00:00",
+  "sha256": "112d2a42c04fd7dec8ee67471bca13a3b67de48882e7460a4c138aec15e16bcb",
+  "trainRows": 8000,
+  "testRows": 2000,
+  "randomSeed": 42
+}

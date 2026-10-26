@@ -1,0 +1,32 @@
+{
+  "source": "Azure Resource Manager deployment response",
+  "state": "Succeeded",
+  "timestamp": "2026-10-26T18:34:23.265621+00:00",
+  "region": "centralindia",
+  "portalRegion": "eastasia",
+  "resources": {
+    "applicationInsights": "contoso-o3fj7jzsdlnla-insights",
+    "cosmosAccount": "contoso-o3fj7jzsdlnla-cosmos",
+    "cosmosEndpoint": "https://contoso-o3fj7jzsdlnla-cosmos.documents.azure.com:443/",
+    "mlWorkspace": "contoso-o3fj7jzsdlnla-ml",
+    "portalUrl": "https://polite-flower-00190c500.1.azurestaticapps.net",
+    "sqlServer": "contoso-o3fj7jzsdlnla-sql.database.windows.net",
+    "staticWebApp": "contoso-o3fj7jzsdlnla-portal"
+  },
+  "budget": {
+    "amount": 500,
+    "currency": "INR",
+    "notificationsPercent": [
+      80,
+      100
+    ],
+    "state": "Succeeded",
+    "hardCap": false
+  },
+  "subscription": {
+    "offer": "FreeTrial",
+    "spendingLimit": "On",
+    "paidUpgrade": false
+  },
+  "portalDeploymentWorkflow": "https://github.com/harshithRai/contoso-delay-classifier/actions/runs/40378675827"
+}

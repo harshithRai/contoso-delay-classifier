@@ -96,6 +96,14 @@ This starts billable managed compute:
 
 The deploy script routes 100% of traffic to one instance and marks only the best run deployed. The Cosmos script upserts two actual Azure runs. It retrieves credentials using your CLI login in memory; it does not print keys. In Cosmos Data Explorer, execute the three model-run queries from `cosmos/queries.sql`; record each real RU charge in `docs/SUBMISSION.md` and capture screenshots.
 
+After a live prediction, the same queries and a request point read can also be captured reproducibly with service-reported RU charges:
+
+```bash
+.venv/bin/python cosmos/capture_evidence.py --request-id '<request-id>' --user-id '<browser-id>'
+```
+
+This writes `evidence/azure-cosmos.json`; it does not fabricate Data Explorer screenshots.
+
 Endpoint Test tab input shape (copy both low/high-risk orders from the portal presets for separate tests):
 
 ```json
