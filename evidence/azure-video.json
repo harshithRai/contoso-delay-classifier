@@ -1,0 +1,387 @@
+{
+  "capturedAt": "2026-10-26T21:23:27.083556+00:00",
+  "source": "Actual Azure screen recording; independent Cosmos point reads and live health",
+  "narration": "Computer-generated macOS Samantha voice; actual Brave window frames sampled approximately once per second; chapters edited and retimed",
+  "keyRestored": true,
+  "endpointRequestSettings": {
+    "max_concurrent_requests_per_instance": 1,
+    "request_timeout_ms": 5000
+  },
+  "requests": {
+    "prediction": {
+      "requestCharge": 1.0,
+      "document": {
+        "id": "89992da4-4035-4b6f-8097-dc8b68882eb0",
+        "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+        "type": "request",
+        "at": "2026-10-26T21:16:18.887Z",
+        "input": {
+          "carrier": "IndiaPost",
+          "distance_km": 5500,
+          "weight_kg": 12,
+          "items": 7,
+          "order_hour": 22,
+          "is_sale_day": 1,
+          "warehouse_backlog": 65,
+          "weather_index": 0.85
+        },
+        "label": "delayed",
+        "modelLatencyMs": 408,
+        "totalLatencyMs": 586,
+        "status": "ok",
+        "httpStatus": 200,
+        "error": null,
+        "modelVersion": "contoso-delay:202610261835050",
+        "coldStart": true,
+        "ttl": 2592000,
+        "databaseWriteMs": 178,
+        "_rid": "lXJtAJRyQZngAQAAAAAAAA==",
+        "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZngAQAAAAAAAA==/",
+        "_etag": "\"03009acc-0000-2000-0000-6adfc3230000\"",
+        "_attachments": "attachments/",
+        "_ts": 1793049379
+      }
+    },
+    "deliberateFailure": {
+      "requestCharge": 1.0,
+      "document": {
+        "id": "5d7fd992-cb77-4556-b587-d7c8efbc978a",
+        "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+        "type": "request",
+        "at": "2026-10-26T21:18:50.810Z",
+        "input": {
+          "carrier": "IndiaPost",
+          "distance_km": 5500,
+          "weight_kg": 12,
+          "items": 7,
+          "order_hour": 22,
+          "is_sale_day": 1,
+          "warehouse_backlog": 65,
+          "weather_index": 0.85
+        },
+        "label": null,
+        "modelLatencyMs": 340,
+        "totalLatencyMs": 515,
+        "status": "error",
+        "httpStatus": 502,
+        "error": "The prediction service is unavailable. Please try again.",
+        "modelVersion": "contoso-delay:202610261835050",
+        "coldStart": false,
+        "ttl": 2592000,
+        "databaseWriteMs": 175,
+        "_rid": "lXJtAJRyQZnrAQAAAAAAAA==",
+        "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZnrAQAAAAAAAA==/",
+        "_etag": "\"0300cecc-0000-2000-0000-6adfc3bb0000\"",
+        "_attachments": "attachments/",
+        "_ts": 1793049531
+      }
+    },
+    "restoredPrediction": {
+      "requestCharge": 1.0,
+      "document": {
+        "id": "0377a471-bced-4373-a0a6-b2645c6e1f76",
+        "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+        "type": "request",
+        "at": "2026-10-26T21:21:13.468Z",
+        "input": {
+          "carrier": "IndiaPost",
+          "distance_km": 5500,
+          "weight_kg": 12,
+          "items": 7,
+          "order_hour": 22,
+          "is_sale_day": 1,
+          "warehouse_backlog": 65,
+          "weather_index": 0.85
+        },
+        "label": "delayed",
+        "modelLatencyMs": 155,
+        "totalLatencyMs": 333,
+        "status": "ok",
+        "httpStatus": 200,
+        "error": null,
+        "modelVersion": "contoso-delay:202610261835050",
+        "coldStart": false,
+        "ttl": 2592000,
+        "databaseWriteMs": 178,
+        "_rid": "lXJtAJRyQZkPAgAAAAAAAA==",
+        "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZkPAgAAAAAAAA==/",
+        "_etag": "\"030066cd-0000-2000-0000-6adfc4490000\"",
+        "_attachments": "attachments/",
+        "_ts": 1793049673
+      }
+    }
+  },
+  "finalHealth": {
+    "requests15m": 253,
+    "requestsAllTime": 730,
+    "successfulSamples": 100,
+    "p50Ms": 324,
+    "p95Ms": 395,
+    "slowestMs": 604,
+    "errorRatePercent": 3.5573122529644268,
+    "errors15m": 9,
+    "invalid15m": 0,
+    "lastColdStart": {
+      "at": "2026-10-26T21:21:10.005Z",
+      "latencyMs": 817
+    },
+    "last50": [
+      {
+        "at": "2026-10-26T21:22:15.252Z",
+        "latencyMs": 357,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:15.769Z",
+        "latencyMs": 333,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:16.086Z",
+        "latencyMs": 321,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:16.568Z",
+        "latencyMs": 331,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:16.824Z",
+        "latencyMs": 334,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:17.349Z",
+        "latencyMs": 312,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:17.616Z",
+        "latencyMs": 331,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:18.141Z",
+        "latencyMs": 323,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:18.383Z",
+        "latencyMs": 355,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:18.906Z",
+        "latencyMs": 322,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:19.203Z",
+        "latencyMs": 303,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:19.712Z",
+        "latencyMs": 321,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:19.946Z",
+        "latencyMs": 315,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:20.477Z",
+        "latencyMs": 326,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:20.765Z",
+        "latencyMs": 320,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:21.286Z",
+        "latencyMs": 310,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:21.533Z",
+        "latencyMs": 348,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:22.041Z",
+        "latencyMs": 309,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:22.337Z",
+        "latencyMs": 302,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:22.766Z",
+        "latencyMs": 307,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:23.098Z",
+        "latencyMs": 582,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:23.540Z",
+        "latencyMs": 378,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:24.147Z",
+        "latencyMs": 318,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:24.357Z",
+        "latencyMs": 367,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:24.960Z",
+        "latencyMs": 324,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:25.195Z",
+        "latencyMs": 356,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:25.711Z",
+        "latencyMs": 318,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:26.003Z",
+        "latencyMs": 309,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:26.530Z",
+        "latencyMs": 325,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:26.757Z",
+        "latencyMs": 360,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:27.290Z",
+        "latencyMs": 319,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:27.586Z",
+        "latencyMs": 348,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:28.100Z",
+        "latencyMs": 325,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:28.347Z",
+        "latencyMs": 331,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:28.858Z",
+        "latencyMs": 324,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:29.154Z",
+        "latencyMs": 322,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:29.700Z",
+        "latencyMs": 321,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:29.931Z",
+        "latencyMs": 344,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:30.451Z",
+        "latencyMs": 346,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:30.720Z",
+        "latencyMs": 329,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:31.246Z",
+        "latencyMs": 306,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:31.477Z",
+        "latencyMs": 332,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:32.010Z",
+        "latencyMs": 316,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:32.300Z",
+        "latencyMs": 312,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:32.816Z",
+        "latencyMs": 312,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:33.065Z",
+        "latencyMs": 349,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:33.575Z",
+        "latencyMs": 307,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:33.866Z",
+        "latencyMs": 319,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:34.303Z",
+        "latencyMs": 323,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T21:22:34.633Z",
+        "latencyMs": 322,
+        "status": "ok"
+      }
+    ],
+    "computedAt": "2026-10-26T21:23:24.671Z",
+    "percentileMethod": "p50 median; p95 nearest rank; successful requests among last 100",
+    "mode": "azure",
+    "modelVersion": "contoso-delay:202610261835050",
+    "errorThresholdPercent": 5
+  },
+  "upstreamErrorLimitation": "API safe errors do not preserve the exact upstream status; one configured in-flight request per instance makes queuing/throttling plausible, but no root cause is established for incidental load errors."
+}

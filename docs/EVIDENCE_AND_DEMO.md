@@ -2,7 +2,7 @@
 
 Screenshots in this repository currently prefixed `local-` are local previews. Do not rename them as Azure proof. Azure screenshots and RU charges must come from actual deployed resources. Never show key/connection-string/settings blades in a recording.
 
-Actual cloud results and screenshots are now linked in [AZURE_EVIDENCE.md](AZURE_EVIDENCE.md). SQL count/analyses, AutoML completion/leaderboard, both Cosmos model documents, the three query charges, the supplied live prediction/point read and the 100-request Azure load test are captured. Deliberate Azure failure/recovery and the demo video remain pending.
+Actual cloud results and screenshots are now linked in [AZURE_EVIDENCE.md](AZURE_EVIDENCE.md). SQL count/analyses, AutoML completion/leaderboard, both Cosmos model documents, the three query charges, the supplied live prediction/point read and the 100-request Azure load test are captured. Deliberate Azure failure/recovery and the [demo video](../demo/README.md) are now complete.
 
 ## Evidence checklist
 
@@ -15,7 +15,7 @@ Actual cloud results and screenshots are now linked in [AZURE_EVIDENCE.md](AZURE
 - [ ] Health counts, p50, p95, error rate and last-50 latency chart.
 - [x] Last-20 requests and one exact ID found via `(id, userId)` lookup.
 - [x] 100-request Azure load-test output, actual VM size and instance count.
-- [ ] Wrong-key 10-request errors and restored-key recovery, including request documents.
+- [x] Wrong-key 10-request errors and restored-key recovery, including request documents.
 - [ ] Budget alert and endpoint cleanup, without sensitive identifiers/settings exposed.
 - [ ] Public repo URL, working live portal URL and viewable demo link.
 

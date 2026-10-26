@@ -1,0 +1,275 @@
+{
+  "capturedAt": "2026-10-26T20:59:00.299823+00:00",
+  "health": {
+    "requests15m": 11,
+    "requestsAllTime": 115,
+    "successfulSamples": 90,
+    "p50Ms": 467.5,
+    "p95Ms": 692,
+    "slowestMs": 1619,
+    "errorRatePercent": 90.9090909090909,
+    "errors15m": 10,
+    "invalid15m": 0,
+    "lastColdStart": {
+      "at": "2026-10-26T20:58:47.563Z",
+      "latencyMs": 1619
+    },
+    "last50": [
+      {
+        "at": "2026-10-26T19:59:25.650Z",
+        "latencyMs": 477,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:25.880Z",
+        "latencyMs": 444,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:25.973Z",
+        "latencyMs": 508,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:26.181Z",
+        "latencyMs": 465,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:26.331Z",
+        "latencyMs": 448,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:26.492Z",
+        "latencyMs": 463,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:26.659Z",
+        "latencyMs": 445,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:26.851Z",
+        "latencyMs": 420,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.008Z",
+        "latencyMs": 412,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.117Z",
+        "latencyMs": 394,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.372Z",
+        "latencyMs": 386,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.533Z",
+        "latencyMs": 427,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.603Z",
+        "latencyMs": 510,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.772Z",
+        "latencyMs": 486,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:27.907Z",
+        "latencyMs": 512,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:28.106Z",
+        "latencyMs": 463,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:28.297Z",
+        "latencyMs": 420,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:28.501Z",
+        "latencyMs": 373,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:28.596Z",
+        "latencyMs": 410,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:28.761Z",
+        "latencyMs": 407,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:28.951Z",
+        "latencyMs": 406,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:29.209Z",
+        "latencyMs": 371,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:29.240Z",
+        "latencyMs": 513,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:29.340Z",
+        "latencyMs": 584,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:29.554Z",
+        "latencyMs": 570,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:29.764Z",
+        "latencyMs": 513,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:30.009Z",
+        "latencyMs": 454,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:30.168Z",
+        "latencyMs": 454,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:30.266Z",
+        "latencyMs": 503,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:30.523Z",
+        "latencyMs": 453,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:30.677Z",
+        "latencyMs": 477,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:30.805Z",
+        "latencyMs": 760,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:31.050Z",
+        "latencyMs": 364,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:31.195Z",
+        "latencyMs": 529,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:31.310Z",
+        "latencyMs": 596,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:31.577Z",
+        "latencyMs": 478,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T19:59:31.746Z",
+        "latencyMs": 460,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T20:27:49.928Z",
+        "latencyMs": 751,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T20:37:44.950Z",
+        "latencyMs": 822,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T20:55:48.353Z",
+        "latencyMs": 692,
+        "status": "ok"
+      },
+      {
+        "at": "2026-10-26T20:58:47.563Z",
+        "latencyMs": 1619,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:49.680Z",
+        "latencyMs": 615,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:50.735Z",
+        "latencyMs": 507,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:51.753Z",
+        "latencyMs": 519,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:52.752Z",
+        "latencyMs": 504,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:53.707Z",
+        "latencyMs": 512,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:54.673Z",
+        "latencyMs": 509,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:55.607Z",
+        "latencyMs": 504,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:56.606Z",
+        "latencyMs": 510,
+        "status": "error"
+      },
+      {
+        "at": "2026-10-26T20:58:57.559Z",
+        "latencyMs": 515,
+        "status": "error"
+      }
+    ],
+    "computedAt": "2026-10-26T20:59:00.217Z",
+    "percentileMethod": "p50 median; p95 nearest rank; successful requests among last 100",
+    "mode": "azure",
+    "modelVersion": "contoso-delay:202610261835050",
+    "errorThresholdPercent": 5
+  }
+}

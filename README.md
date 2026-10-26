@@ -2,7 +2,9 @@
 
 A delay classifier with a web portal, a validating API, request tracing, and service health. The Azure design uses SQL → AutoML → a managed endpoint, with Functions and Cosmos DB behind a Static Web App.
 
-**Current status:** The Azure SQL → AutoML → endpoint → Functions → Cosmos pipeline is working. Live predictions, matching Cosmos point reads, both held-out model evaluations, SQL analyses and Cosmos query charges are verified. The Azure load test completed 100 requests at concurrency 5: 98 successes, two tracked errors, client p50 851 ms and p95 1,378 ms. Actual Azure screenshots are in `screenshots/`. Training clusters are deleted; the live endpoint remains active. The trial spending limit remains enabled and a ₹500 budget alert is active. **Demo video and the deliberate Azure failure/recovery test are pending.**
+**Current status:** The Azure SQL → AutoML → endpoint → Functions → Cosmos pipeline is working. Live predictions, matching Cosmos point reads, both held-out model evaluations, SQL analyses and Cosmos query charges are verified. The Azure load test completed 100 requests at concurrency 5: 98 successes, two tracked errors, client p50 851 ms and p95 1,378 ms. Actual Azure screenshots are in `screenshots/`. Training clusters are deleted; the live endpoint remains active. The trial spending limit remains enabled and a ₹500 budget alert is active. **The demo and deliberate Azure failure/recovery tests are complete.**
+
+**Demo:** [Watch/download the 3:47 MP4](https://github.com/harshithRai/contoso-delay-classifier/releases/download/demo-2026-10-27/contoso-delay-demo.mp4) · [Narration and chapters](demo/README.md). The demo uses actual Brave window frames captured about once per second, edited under computer-generated narration.
 
 **Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net).
 
@@ -195,9 +197,25 @@ Raw results: `evidence/local-load-test.json`, `local-failure-test.json`, `local-
 | Error rate | 2.0% |
 | Total elapsed | 20.285 seconds |
 
-Raw responses and request IDs are in `evidence/azure-load-test.json`. Both HTTP 502 failures were independently found in Cosmos DB, as recorded in `evidence/azure-evidence-verification.json`. Their safe generic error messages establish a model/dependency failure but do not identify the upstream status or root cause. The observed errors are retained in the reported result. The deliberate wrong-key/recovery experiment remains pending.
+Raw responses and request IDs are in `evidence/azure-load-test.json`. Both HTTP 502 failures were independently found in Cosmos DB, as recorded in `evidence/azure-evidence-verification.json`. Their safe generic error messages establish a model/dependency failure but do not identify the upstream status or root cause. The observed errors are retained in the reported result. The deliberate wrong-key/recovery experiment is recorded below.
 
 The portal measures handler time through the initial durable write; client measurements also include transport and finalization. For example, the supplied actual Azure request recorded 445 ms for the model call, 305 ms for the initial Cosmos write and 751 ms total handler time. Rolling health metrics can differ from the fixed load-test cohort. The first/idle marker is a proxy and does not establish Azure host cold-start cost. Production improvements include Application Insights spans, rollups to reduce cross-partition polling and endpoint sizing based on measured p95.
+
+### Executed Azure failure and recovery tests
+
+| Cohort | Requests / concurrency | Result | Client p50 / p95 |
+|---|---|---|---|
+| Initial deliberately invalid API model key | 10 / 1 | 10 tracked errors, 100% error rate | No successful latency sample |
+| Real key restored | 120 / 5 | 116 successes, 4 errors (3.33%) | 905 / 2,049 ms |
+| Separate lower-concurrency follow-up | 240 / 2 | 240 successes, 0 errors | 704.5 / 923 ms |
+| Repeat failure take for the saved video | 10 / 1 | 2 successes, 8 errors while settings propagated | 945.5 / 1,052 ms for successful calls |
+| Saved video's restored-key cohort | 240 / 2 | 240 successes, 0 errors | 792 / 955 ms |
+
+The live portal shows a friendly failure, request ID and elevated error alert. Restoring the real key was followed by a successful live call and a falling rolling rate. The final recorded panel shows Operational at 3.6%. A subsequent service read measured 3.56%. The original and repeated cohorts are retained separately; mixed responses during settings propagation are not relabeled as complete failure.
+
+The endpoint allows one in-flight request per instance and has a 5-second endpoint request timeout. Queueing or throttling is plausible under concurrency five, but the API's safe generic errors do not establish the exact upstream status or root cause. The lower-load success does not erase the higher-load failures or establish production reliability. No endpoint key was rotated or revealed; only the API's configured value was temporarily changed, and the real key is restored.
+
+Raw results: `evidence/azure-failure-test.json`, `azure-recovery-test.json`, `azure-recovery-followup.json`, `azure-video-failure-test.json` and `azure-video-recovery-test.json`. The final video's exact success/failure/restoration request documents and independent Cosmos point reads are in `evidence/azure-video.json`. The earlier full test is retained in `evidence/azure-demo.json`.
 
 ## Security, limitations and cost
 
@@ -211,7 +229,7 @@ Use one dedicated resource group and create a budget alert. Budget alerts **do n
 
 The hardest design issue is truthful observability: validation failures must not inflate system error rate, all-time counts must survive log TTL, and a successful model answer must not be presented as durably tracked if storage fails. With more time, I would tune the operating threshold from validation costs, evaluate calibration, add confidence intervals and drift monitoring, and instrument full client/server spans.
 
-Remaining: perform and record the deliberate Azure wrong-key failure/recovery test, upload the 3–5 minute demo, add its link to the submission comment, and delete the live endpoint after the demo/grading window. SQL/AutoML/Cosmos service evidence, measured RU charges and the 100-request Azure load test are collected.
+Remaining: post or edit the single class submission comment using the completed template, then delete the live endpoint after the demo/grading window. SQL/AutoML/Cosmos evidence, RU charges, load/failure/recovery tests and the narrated demo are collected and published. The model limitations remain documented above.
 
 ## References
 

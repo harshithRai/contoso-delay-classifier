@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Architecture and data",
+    "startSeconds": 0.0,
+    "durationSeconds": 36.116,
+    "sourceWindowStartSeconds": 0,
+    "sourceWindowEndSeconds": 36.953,
+    "capturedFrames": 29
+  },
+  {
+    "title": "AutoML and limitations",
+    "startSeconds": 36.116,
+    "durationSeconds": 34.954,
+    "sourceWindowStartSeconds": 67.275,
+    "sourceWindowEndSeconds": 121.581,
+    "capturedFrames": 31
+  },
+  {
+    "title": "Live prediction and Cosmos trace",
+    "startSeconds": 71.07,
+    "durationSeconds": 37.981,
+    "sourceWindowStartSeconds": 156.408,
+    "sourceWindowEndSeconds": 200.62099999999998,
+    "capturedFrames": 32
+  },
+  {
+    "title": "Health and load test",
+    "startSeconds": 109.051,
+    "durationSeconds": 38.058,
+    "sourceWindowStartSeconds": 227.835,
+    "sourceWindowEndSeconds": 273.385,
+    "capturedFrames": 35
+  },
+  {
+    "title": "Deliberate failure",
+    "startSeconds": 147.109,
+    "durationSeconds": 34.981,
+    "sourceWindowStartSeconds": 309.259,
+    "sourceWindowEndSeconds": 349.83,
+    "capturedFrames": 36
+  },
+  {
+    "title": "Recovery and cost",
+    "startSeconds": 182.09,
+    "durationSeconds": 44.583,
+    "sourceWindowStartSeconds": 452.878,
+    "sourceWindowEndSeconds": 541.786,
+    "capturedFrames": 69
+  }
+]

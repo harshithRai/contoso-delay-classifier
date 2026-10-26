@@ -1,0 +1,86 @@
+{
+  "environment": "azure",
+  "vmSize": "Standard_D2as_v4",
+  "instances": 1,
+  "requests": 10,
+  "concurrency": 1,
+  "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+  "totalSeconds": 13.296,
+  "p50ClientMs": null,
+  "p95ClientMs": null,
+  "errorRatePercent": 100.0,
+  "invalidCount": 0,
+  "latencyWindow": "successful requests in this load test; client wall time includes transport",
+  "results": [
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 4328,
+      "apiLatencyMs": 1619,
+      "requestId": "be1cf315-271a-4073-a400-1d4f8fe1a7f5"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 1050,
+      "apiLatencyMs": 615,
+      "requestId": "2da3b7f3-7b7c-4bf4-8be3-003ade067379"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 935,
+      "apiLatencyMs": 507,
+      "requestId": "783992bf-8bec-49da-9559-79120661d552"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 1044,
+      "apiLatencyMs": 519,
+      "requestId": "4d0e686e-d43a-4c6f-a630-0dcc8c3e18de"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 971,
+      "apiLatencyMs": 504,
+      "requestId": "77e244c1-f03a-4a37-a8ca-b821a492bdbc"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 963,
+      "apiLatencyMs": 512,
+      "requestId": "1c47c403-08a2-4534-ab20-db7b096452e1"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 963,
+      "apiLatencyMs": 509,
+      "requestId": "ee9ce63f-8dd3-4a65-86f5-627af2d3284b"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 993,
+      "apiLatencyMs": 504,
+      "requestId": "3fc047cc-25f9-4db7-b197-a20487bdac80"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 941,
+      "apiLatencyMs": 510,
+      "requestId": "ab12248b-8ef4-4ccf-817c-1a7095715a18"
+    },
+    {
+      "httpStatus": 502,
+      "status": "error",
+      "latencyMs": 1107,
+      "apiLatencyMs": 515,
+      "requestId": "c674af4d-6d50-4602-b654-7505b2673df9"
+    }
+  ]
+}
