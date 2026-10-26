@@ -24,7 +24,7 @@ test('upstream auth failure and malformed response become tracked 502s',async t=
   const {service,store}=fixture(t,async()=>({ok:false,status:401}));const r=await service.predict(input);
   assert.equal(r.status,502);assert.equal(r.body.status,'error');assert.equal((await store.point(r.body.requestId,input.userId)).httpStatus,502);
   assert.equal((await service.metrics()).body.errorRatePercent,100);
-  assert.throws(()=>parseModel({prediction:['unexpected']}));assert.equal(parseModel('[0]'),'on time');assert.equal(parseModel({predictions:[1]}),'delayed');
+  assert.throws(()=>parseModel({prediction:['unexpected']}));assert.equal(parseModel('[0]'),'on time');assert.equal(parseModel({predictions:[1]}),'delayed');assert.equal(parseModel(0),'on time');assert.equal(parseModel('1'),'delayed');
 });
 test('timeout maps to 504 with a safe message and a persisted ID',async t=>{
   const {service,store}=fixture(t,async()=>{const e=Error('sensitive details');e.name='TimeoutError';throw e;});
