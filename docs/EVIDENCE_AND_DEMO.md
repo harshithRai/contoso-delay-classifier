@@ -2,17 +2,19 @@
 
 Screenshots in this repository currently prefixed `local-` are local previews. Do not rename them as Azure proof. Azure screenshots and RU charges must come from actual deployed resources. Never show key/connection-string/settings blades in a recording.
 
+Actual cloud results and screenshots are now linked in [AZURE_EVIDENCE.md](AZURE_EVIDENCE.md). SQL count/analyses, AutoML completion/leaderboard, both Cosmos model documents, the three query charges, the supplied live prediction/point read and the 100-request Azure load test are captured. Deliberate Azure failure/recovery and the demo video remain pending.
+
 ## Evidence checklist
 
 - [ ] SQL count = 10,000; Entra-only configuration; the three actual analysis results.
 - [ ] AutoML leaderboard, best metrics, delayed-class confusion matrix, feature importance.
 - [ ] Endpoint Test tab for a lower-risk order and higher-risk order, without a visible key.
-- [ ] Two real documents in `model_runs`, including best/second-best metrics.
-- [ ] Three Cosmos query results with their actual RU charges.
+- [x] Two real documents in `model_runs`, including best/second-best metrics.
+- [x] Three Cosmos query results with their actual RU charges.
 - [ ] Portal prediction, client/server validation error, model-failure error.
 - [ ] Health counts, p50, p95, error rate and last-50 latency chart.
-- [ ] Last-20 requests and one exact ID found via `(id, userId)` lookup.
-- [ ] 100-request Azure load-test output, actual VM size and instance count.
+- [x] Last-20 requests and one exact ID found via `(id, userId)` lookup.
+- [x] 100-request Azure load-test output, actual VM size and instance count.
 - [ ] Wrong-key 10-request errors and restored-key recovery, including request documents.
 - [ ] Budget alert and endpoint cleanup, without sensitive identifiers/settings exposed.
 - [ ] Public repo URL, working live portal URL and viewable demo link.

@@ -1,0 +1,96 @@
+{
+  "source": "Azure Cosmos DB SDK; service-reported request charges",
+  "capturedAt": "2026-10-26T20:30:07.051216+00:00",
+  "containers": {
+    "model_runs": {
+      "partitionKey": [
+        "/modelName"
+      ],
+      "defaultTtl": null
+    },
+    "requests": {
+      "partitionKey": [
+        "/userId"
+      ],
+      "defaultTtl": 2592000
+    }
+  },
+  "queries": [
+    {
+      "name": "Runs ordered by AUC",
+      "query": "SELECT c.id, c.algorithm, c.metrics.auc, c.trainedAt FROM c ORDER BY c.metrics.auc DESC",
+      "requestCharge": 3.16,
+      "results": [
+        {
+          "id": "gentle_iron_9ymzptm5gm_9",
+          "algorithm": "StackEnsembleClassifier",
+          "auc": 0.7257212103184327,
+          "trainedAt": "2026-10-26T18:49:14.976000+00:00"
+        },
+        {
+          "id": "gentle_iron_9ymzptm5gm_8",
+          "algorithm": "PreFittedSoftVotingClassifier",
+          "auc": 0.72401927396443,
+          "trainedAt": "2026-10-26T18:48:01.213000+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Count deployed runs",
+      "query": "SELECT VALUE COUNT(1) FROM c WHERE c.deployed = true",
+      "requestCharge": 2.82,
+      "results": [
+        1
+      ]
+    },
+    {
+      "name": "Recall below 0.5",
+      "query": "SELECT c.id, c.metrics.recall FROM c WHERE c.metrics.recall < 0.5",
+      "requestCharge": 2.85,
+      "results": [
+        {
+          "id": "gentle_iron_9ymzptm5gm_8",
+          "recall": 0.013850415512465374
+        },
+        {
+          "id": "gentle_iron_9ymzptm5gm_9",
+          "recall": 0.14681440443213298
+        }
+      ]
+    }
+  ],
+  "pointRead": {
+    "requestCharge": 1.0,
+    "document": {
+      "id": "b5084d64-a2dc-4992-a570-a6131695e95f",
+      "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+      "type": "request",
+      "at": "2026-10-26T20:27:49.928Z",
+      "input": {
+        "carrier": "IndiaPost",
+        "distance_km": 5500,
+        "weight_kg": 12,
+        "items": 7,
+        "order_hour": 22,
+        "is_sale_day": 1,
+        "warehouse_backlog": 65,
+        "weather_index": 0.85
+      },
+      "label": "delayed",
+      "modelLatencyMs": 445,
+      "totalLatencyMs": 751,
+      "status": "ok",
+      "httpStatus": 200,
+      "error": null,
+      "modelVersion": "contoso-delay:202610261835050",
+      "coldStart": true,
+      "ttl": 2592000,
+      "databaseWriteMs": 305,
+      "_rid": "lXJtAJRyQZlpAAAAAAAAAA==",
+      "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZlpAAAAAAAAAA==/",
+      "_etag": "\"030015c6-0000-2000-0000-6adfb7c60000\"",
+      "_attachments": "attachments/",
+      "_ts": 1793046470
+    }
+  }
+}

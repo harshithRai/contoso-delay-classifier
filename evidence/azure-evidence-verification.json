@@ -1,0 +1,197 @@
+{
+  "capturedAt": "2026-10-26T20:38:05.088821+00:00",
+  "source": "Live Azure SQL, Azure ML and Cosmos SDK responses",
+  "trainingJob": {
+    "name": "gentle_iron_9ymzptm5gm",
+    "status": "Completed"
+  },
+  "endpoint": {
+    "name": "contoso-delay-o3fj7jzsdlnla-v2",
+    "deployment": "blue",
+    "state": "Succeeded",
+    "vmSize": "Standard_D2as_v4",
+    "instances": 1
+  },
+  "remainingTrainingCompute": [],
+  "modelRuns": [
+    {
+      "id": "gentle_iron_9ymzptm5gm_8",
+      "modelName": "delay-classifier",
+      "algorithm": "PreFittedSoftVotingClassifier",
+      "datasetRows": 10000,
+      "delayRate": 0.1807,
+      "metrics": {
+        "auc": 0.72401927396443,
+        "accuracy": 0.8215,
+        "precision": 0.8333333333333334,
+        "recall": 0.013850415512465374,
+        "f1": 0.027247956403269755,
+        "confusionMatrix": [
+          [
+            1638,
+            1
+          ],
+          [
+            356,
+            5
+          ]
+        ]
+      },
+      "crossValidationAuc": 0.7438532765717651,
+      "features": [
+        "carrier",
+        "distance_km",
+        "weight_kg",
+        "items",
+        "order_hour",
+        "is_sale_day",
+        "warehouse_backlog",
+        "weather_index"
+      ],
+      "featureImportance": {
+        "distance_km": 0.11760633722001279,
+        "weather_index": 0.035794408792605384,
+        "carrier": 0.03529785576300661,
+        "is_sale_day": 0.02609387860647403,
+        "weight_kg": 0.0026963944976920785,
+        "order_hour": 0.0008643200113574778,
+        "warehouse_backlog": -0.0004924967761235522,
+        "items": -0.0007294495833044979
+      },
+      "endpointName": "contoso-delay-o3fj7jzsdlnla-v2",
+      "deployed": true,
+      "trainedAt": "2026-10-26T18:48:01.213000+00:00",
+      "source": "Azure-AutoML",
+      "registeredModel": "azureml:contoso-delay:202610261835050",
+      "evaluationJob": "bubbly_lobster_x4qxb7kpvw",
+      "trainingImage": "mcr.microsoft.com/azureml/curated/ai-ml-automl:41",
+      "_rid": "lXJtAMJ7uHkBAAAAAAAAAA==",
+      "_self": "dbs/lXJtAA==/colls/lXJtAMJ7uHk=/docs/lXJtAMJ7uHkBAAAAAAAAAA==/",
+      "_etag": "\"0800d422-0000-2000-0000-6adfaa8f0000\"",
+      "_attachments": "attachments/",
+      "_ts": 1793043087
+    },
+    {
+      "id": "gentle_iron_9ymzptm5gm_9",
+      "modelName": "delay-classifier",
+      "algorithm": "StackEnsembleClassifier",
+      "datasetRows": 10000,
+      "delayRate": 0.1807,
+      "metrics": {
+        "auc": 0.7257212103184327,
+        "accuracy": 0.8275,
+        "precision": 0.5888888888888889,
+        "recall": 0.14681440443213298,
+        "f1": 0.23503325942350334,
+        "confusionMatrix": [
+          [
+            1602,
+            37
+          ],
+          [
+            308,
+            53
+          ]
+        ]
+      },
+      "crossValidationAuc": 0.7437750254662516,
+      "features": [
+        "carrier",
+        "distance_km",
+        "weight_kg",
+        "items",
+        "order_hour",
+        "is_sale_day",
+        "warehouse_backlog",
+        "weather_index"
+      ],
+      "featureImportance": {
+        "distance_km": 0.11608456612453703,
+        "weather_index": 0.038503648092969245,
+        "carrier": 0.03520084370072274,
+        "is_sale_day": 0.02712619511593266,
+        "weight_kg": 0.003608375487384197,
+        "order_hour": 0.0006905771541663386,
+        "items": -0.00036202062266881273,
+        "warehouse_backlog": -0.000667253696683634
+      },
+      "endpointName": null,
+      "deployed": false,
+      "trainedAt": "2026-10-26T18:49:14.976000+00:00",
+      "source": "Azure-AutoML",
+      "registeredModel": "azureml:contoso-delay:202610261835051",
+      "evaluationJob": "stoic_airport_ftv7m743f7",
+      "trainingImage": "mcr.microsoft.com/azureml/curated/ai-ml-automl:41",
+      "_rid": "lXJtAMJ7uHkCAAAAAAAAAA==",
+      "_self": "dbs/lXJtAA==/colls/lXJtAMJ7uHk=/docs/lXJtAMJ7uHkCAAAAAAAAAA==/",
+      "_etag": "\"0800d522-0000-2000-0000-6adfaa8f0000\"",
+      "_attachments": "attachments/",
+      "_ts": 1793043087
+    }
+  ],
+  "loadTestFailures": [
+    {
+      "id": "7036d1ac-944b-4615-9595-cecca7de54ff",
+      "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+      "type": "request",
+      "at": "2026-10-26T19:59:12.362Z",
+      "input": {
+        "carrier": "IndiaPost",
+        "distance_km": 2100,
+        "weight_kg": 6,
+        "items": 3,
+        "order_hour": 19,
+        "is_sale_day": 1,
+        "warehouse_backlog": 55,
+        "weather_index": 0.4
+      },
+      "label": null,
+      "modelLatencyMs": 434,
+      "totalLatencyMs": 842,
+      "status": "error",
+      "httpStatus": 502,
+      "error": "The prediction service is unavailable. Please try again.",
+      "modelVersion": "contoso-delay:202610261835050",
+      "coldStart": true,
+      "ttl": 2592000,
+      "databaseWriteMs": 408,
+      "_rid": "lXJtAJRyQZkGAAAAAAAAAA==",
+      "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZkGAAAAAAAAAA==/",
+      "_etag": "\"0300d992-0000-2000-0000-6adfb1110000\"",
+      "_attachments": "attachments/",
+      "_ts": 1793044753
+    },
+    {
+      "id": "9f5e2123-0040-4f33-bb9b-e349568e537b",
+      "userId": "69b110b0-5173-4ac0-a320-2d45bc08521c",
+      "type": "request",
+      "at": "2026-10-26T19:59:15.620Z",
+      "input": {
+        "carrier": "IndiaPost",
+        "distance_km": 2100,
+        "weight_kg": 6,
+        "items": 3,
+        "order_hour": 19,
+        "is_sale_day": 1,
+        "warehouse_backlog": 55,
+        "weather_index": 0.4
+      },
+      "label": null,
+      "modelLatencyMs": 93,
+      "totalLatencyMs": 711,
+      "status": "error",
+      "httpStatus": 502,
+      "error": "The prediction service is unavailable. Please try again.",
+      "modelVersion": "contoso-delay:202610261835050",
+      "coldStart": false,
+      "ttl": 2592000,
+      "databaseWriteMs": 618,
+      "_rid": "lXJtAJRyQZkNAAAAAAAAAA==",
+      "_self": "dbs/lXJtAA==/colls/lXJtAJRyQZk=/docs/lXJtAJRyQZkNAAAAAAAAAA==/",
+      "_etag": "\"0300f292-0000-2000-0000-6adfb1140000\"",
+      "_attachments": "attachments/",
+      "_ts": 1793044756
+    }
+  ],
+  "failureDiagnosis": "Both failures were persisted as model/dependency errors. The API intentionally stores a safe generic message, so these records do not establish the upstream status or root cause."
+}

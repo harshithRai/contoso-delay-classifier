@@ -2,7 +2,7 @@
 
 A delay classifier with a web portal, a validating API, request tracing, and service health. The Azure design uses SQL → AutoML → a managed endpoint, with Functions and Cosmos DB behind a Static Web App.
 
-**Current status:** The Azure SQL → AutoML → endpoint → Functions → Cosmos pipeline is working. A live portal API prediction returned HTTP 200 in 736 ms, and its matching Cosmos point read and health API were verified. Both held-out model evaluations are saved. The trial spending limit remains enabled and a ₹500 budget alert is active. **Demo video and Azure load/failure tests are pending.**
+**Current status:** The Azure SQL → AutoML → endpoint → Functions → Cosmos pipeline is working. Live predictions, matching Cosmos point reads, both held-out model evaluations, SQL analyses and Cosmos query charges are verified. The Azure load test completed 100 requests at concurrency 5: 98 successes, two tracked errors, client p50 851 ms and p95 1,378 ms. Actual Azure screenshots are in `screenshots/`. Training clusters are deleted; the live endpoint remains active. The trial spending limit remains enabled and a ₹500 budget alert is active. **Demo video and the deliberate Azure failure/recovery test are pending.**
 
 **Portal:** [polite-flower-00190c500.1.azurestaticapps.net](https://polite-flower-00190c500.1.azurestaticapps.net).
 
@@ -29,7 +29,7 @@ npm run check
 python3 tests/load_test.py --count 100 --concurrency 5 --out evidence/local-load-test.json
 ```
 
-Deployment instructions are in [docs/AZURE_SETUP.md](docs/AZURE_SETUP.md). Evidence and recording steps are in [docs/EVIDENCE_AND_DEMO.md](docs/EVIDENCE_AND_DEMO.md). The comment template is in [docs/SUBMISSION.md](docs/SUBMISSION.md).
+Deployment instructions are in [docs/AZURE_SETUP.md](docs/AZURE_SETUP.md). Actual cloud screenshots and reports are indexed in [docs/AZURE_EVIDENCE.md](docs/AZURE_EVIDENCE.md). Recording steps are in [docs/EVIDENCE_AND_DEMO.md](docs/EVIDENCE_AND_DEMO.md). The comment template is in [docs/SUBMISSION.md](docs/SUBMISSION.md).
 
 ## Architecture
 
@@ -143,7 +143,7 @@ Azure-held-out permutation importance ranks distance, weather, carrier and sale 
 
 `model_runs` uses **`/modelName`** so runs of the same model can be queried together; TTL is off. The workload is small and infrequent, and this intentionally prioritizes model-history access rather than pretending that one model creates high cardinality. `requests` uses **`/userId`**, which keeps a browser's last 20 requests and `(id, userId)` lookups in one partition while distributing many users across partition values. `/carrier` has only four values and would concentrate traffic; a constant request key would put everything into one logical partition. One exceptionally busy user can still become hot, and a production design would revisit partitioning and rollups for that workload.
 
-A point read provides the exact item address and partition, so it avoids query planning and scanning. Record real RU charges for the three queries in `cosmos/queries.sql`; none have been measured yet.
+A point read provides the exact item address and partition, so it avoids query planning and scanning. Actual charges for runs ordered by AUC, deployed-run count and recall below 0.5 were **3.16 RU, 2.82 RU and 2.85 RU**. The supplied request ID `b5084d64-a2dc-4992-a570-a6131695e95f` was found with its exact browser partition in **1 RU**. Results and charges are saved in `evidence/azure-cosmos.json`, with Data Explorer screenshots. Charges describe these executions and can change with query/data size.
 
 Request documents expire after 2,592,000 seconds. A small `type: counter`, `id: __counter`, `ttl: -1` document in each user partition retains its cumulative request count after detailed logs expire. Creating a request and incrementing that count is a Cosmos transactional batch, so the two cannot diverge on a successful transaction. All request queries explicitly filter `type = 'request'`. Global health aggregates across partitions; that is appropriate for the exercise but costs more as traffic grows.
 
@@ -182,9 +182,22 @@ The API rejects missing values, booleans in numeric fields, strings instead of n
 | Restored service, 120 calls at concurrency 5 | 0% errors in recovery cohort; global health rate fell to 4.7% |
 | Automated checks | API behavioral tests and model report checks; Python source syntax; Azure templates validated separately as recorded in `evidence/verification.md` |
 
-Raw results: `evidence/local-load-test.json`, `local-failure-test.json`, `local-recovery-test.json`. These use local processes, not an Azure VM. Rerun the load test on Azure and state the actual VM size/instance count. Screenshots prefixed `local-` show local behavior only.
+Raw results: `evidence/local-load-test.json`, `local-failure-test.json`, `local-recovery-test.json`. These use local processes, not an Azure VM. Screenshots prefixed `local-` show local behavior only.
 
-On loopback, the classifier call and request persistence are very fast, and OS scheduling/concurrency account for much of the measured time. A deployment adds endpoint/network latency, Cosmos writes, and potentially Function/ML warmup; we have not measured those yet. The local first call is an idle/first-request proxy and cannot establish Azure cold-start cost. First production improvements would be measuring those components with Application Insights, reducing unnecessary cross-partition polling via rollups, and assessing endpoint sizing based on actual p95 rather than adding a cache before identifying the bottleneck.
+### Executed Azure load test
+
+| Measurement | Actual result |
+|---|---:|
+| Requests / concurrency | 100 / 5 |
+| ML deployment | Standard_D2as_v4, 1 instance |
+| Successful / failed / invalid | 98 / 2 / 0 |
+| Client p50 / p95 (successful requests) | 851 / 1,378 ms |
+| Error rate | 2.0% |
+| Total elapsed | 20.285 seconds |
+
+Raw responses and request IDs are in `evidence/azure-load-test.json`. Both HTTP 502 failures were independently found in Cosmos DB, as recorded in `evidence/azure-evidence-verification.json`. Their safe generic error messages establish a model/dependency failure but do not identify the upstream status or root cause. The observed errors are retained in the reported result. The deliberate wrong-key/recovery experiment remains pending.
+
+The portal measures handler time through the initial durable write; client measurements also include transport and finalization. For example, the supplied actual Azure request recorded 445 ms for the model call, 305 ms for the initial Cosmos write and 751 ms total handler time. Rolling health metrics can differ from the fixed load-test cohort. The first/idle marker is a proxy and does not establish Azure host cold-start cost. Production improvements include Application Insights spans, rollups to reduce cross-partition polling and endpoint sizing based on measured p95.
 
 ## Security, limitations and cost
 
@@ -192,13 +205,13 @@ No real ML/Cosmos keys are included. `.env`, local settings, model binaries, req
 
 Browser IDs provide anonymous request grouping, not user authentication. The sample uses synthetic order features, no PII, and a public prediction route. Before production, add authentication where appropriate, rate limits/abuse protection, quotas, data-access authorization, alerting and bounded/rolled-up telemetry queries. The local file store supports this development workflow, not distributed hosting.
 
-Use one dedicated resource group and create a budget alert. Budget alerts **do not cap spending**. This deployment uses trial credits with the subscription spending limit enabled; no paid-plan upgrade is authorized. The ML endpoint remains billable while idle; delete it after testing/recording and coordinate any required grading availability. Deleting it disables predictions until redeployment, so the portal cannot remain fully working after cleanup. Retain the group until grading only if required; delete it afterward. Cleanup has not run while provisioning is in progress.
+Use one dedicated resource group and create a budget alert. Budget alerts **do not cap spending**. This deployment uses trial credits with the subscription spending limit enabled; no paid-plan upgrade is authorized. Both training clusters were deleted and a live compute listing is empty. The ML endpoint remains billable while idle; delete it after testing/recording and coordinate any required grading availability. Deleting it disables predictions until redeployment. Retain the resource group until grading only if required; delete it afterward. The endpoint has intentionally not been deleted yet.
 
 ## Reflection and remaining work
 
 The hardest design issue is truthful observability: validation failures must not inflate system error rate, all-time counts must survive log TTL, and a successful model answer must not be presented as durably tracked if storage fails. With more time, I would tune the operating threshold from validation costs, evaluate calibration, add confidence intervals and drift monitoring, and instrument full client/server spans.
 
-Remaining: finish the cloud runbook, collect SQL/AutoML/Cosmos evidence and actual RU charges, run Azure load/failure tests, record the 3–5 minute video, and fill in the remaining submission URLs. Central India CPU quota was checked before provisioning; deployed behavior remains unverified. Code review and local tests cannot replace those steps.
+Remaining: perform and record the deliberate Azure wrong-key failure/recovery test, upload the 3–5 minute demo, add its link to the submission comment, and delete the live endpoint after the demo/grading window. SQL/AutoML/Cosmos service evidence, measured RU charges and the 100-request Azure load test are collected.
 
 ## References
 

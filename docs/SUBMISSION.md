@@ -1,6 +1,6 @@
 # Submission status
 
-The updated post requires a public repository and **one comment**, edited for updates. Due: **Monday, 26 October 2026, 11:59 PM IST**. Session name and video URL are pending. AutoML training and the model endpoint are deployed; portal integration and final evidence are in progress.
+The updated post requires a public repository and **one comment**, edited for updates. Due: **Monday, 26 October 2026, 11:59 PM IST**. Session name and video URL are pending. The live portal works; SQL/AutoML/Cosmos evidence and the Azure load test are captured.
 
 Do not submit the template as completed until the Azure portal, evidence and video are ready.
 
@@ -13,18 +13,20 @@ Do not submit the template as completed until the Azure portal, evidence and vid
 | 🌐 Live portal URL | https://polite-flower-00190c500.1.azurestaticapps.net |
 | 🎥 Demo video | Pending |
 | 🧭 Approach (2–4 lines) | Loaded 10,000 orders into Azure SQL and trained AutoML classifiers using the training view export.<br>A Static Web App calls a validating Functions API; Cosmos DB stores model results and request logs, while the portal shows predictions, latency and error rate. |
-| 🚧 Unfinished / stuck on | Demo video and Azure load/failure tests are pending. Model limitations and measured metrics are documented in the README. |
+| 🚧 Unfinished / stuck on | Demo video and deliberate Azure failure/recovery test are pending. The 100-request Azure load test and SQL/AutoML/Cosmos evidence are captured; model limitations and measured metrics are documented in the README. |
 ```
 
-## Actual Cosmos RU charges — pending
+## Actual Cosmos RU charges
 
 | Query | RU charge | Evidence |
 |---|---|---|
-| Runs ordered by AUC | Not measured | Pending Azure Data Explorer |
-| Count deployed runs | Not measured | Pending Azure Data Explorer |
-| Recall below 0.5 | Not measured | Pending Azure Data Explorer |
+| Runs ordered by AUC | 3.16 RU | `evidence/azure-cosmos.json`; `screenshots/azure-cosmos-auc-query-stats.jpg` |
+| Count deployed runs | 2.82 RU | `evidence/azure-cosmos.json`; `screenshots/azure-cosmos-deployed-query-stats.jpg` |
+| Recall below 0.5 | 2.85 RU | `evidence/azure-cosmos.json`; `screenshots/azure-cosmos-recall-query-stats.jpg` |
 
-## Deployment record — in progress
+The request point read used 1 RU and matched `(b5084d64-a2dc-4992-a570-a6131695e95f, 69b110b0-5173-4ac0-a320-2d45bc08521c)`. These charges were reported by the live Azure service and confirmed in Data Explorer.
+
+## Deployment record
 
 | Field | Actual value |
 |---|---|
@@ -33,7 +35,8 @@ Do not submit the template as completed until the Azure portal, evidence and vid
 | Best / runner-up run IDs | gentle_iron_9ymzptm5gm_8 / gentle_iron_9ymzptm5gm_9 |
 | Endpoint name, VM size, instances | contoso-delay-o3fj7jzsdlnla-v2; Standard_D2as_v4; 1 instance. Direct tests returned [false] / [true]. |
 | Live URL | https://polite-flower-00190c500.1.azurestaticapps.net |
-| Azure load and failure results | Not run |
-| Cleanup time/evidence | Pending after model testing/demo; trial spending limit enabled; ₹500 alert active. |
+| Azure load results | 100 requests, concurrency 5; 98 successful, 2 HTTP 502 errors; client p50 851 ms/p95 1,378 ms; 2% error rate; 20.285 seconds. |
+| Deliberate Azure failure/recovery test | Pending; the two load errors are not a substitute for this test. |
+| Cleanup time/evidence | Both training clusters deleted; verified empty compute listing in `evidence/azure-evidence-verification.json`. Endpoint remains active for demo/grading; trial spending limit enabled; ₹500 alert active. |
 
 SQL import/analysis and the live API validation/Cosmos logging/point lookup/health smoke test passed. Both held-out model evaluations and successful live inference are verified.
