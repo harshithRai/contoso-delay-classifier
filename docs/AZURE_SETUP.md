@@ -106,16 +106,14 @@ The API accepts Azure AutoML class arrays such as `[0]`/`[1]`; verify the actual
 
 ## 6. Publish the repository and deploy the portal
 
-Create an empty **public** GitHub repository under your account. Review the source/evidence first; keep `.venv`, `artifacts`, `.local`, `.env`, `local.settings.json`, keys and sensitive screenshots out. From this project directory, initialize and push your own repo:
+The project is already published at **https://github.com/harshithRai/contoso-delay-classifier**. Review source/evidence before every update; keep `.venv`, `artifacts`, `.local`, `.env`, `local.settings.json`, keys and sensitive screenshots out. From the existing project checkout, publish changes with:
 
 ```bash
-git init -b main
 git add .
 git diff --cached --stat
 git diff --cached
-git commit -m 'Build Contoso delay classifier and Azure deployment workflow'
-git remote add origin 'https://github.com/<your-handle>/<your-repo>.git'
-git push -u origin main
+git commit -m 'Add verified Azure deployment results and evidence'
+git push origin main
 ```
 
 Inspect the staged content/history before publishing. If a key is committed, rotate it immediately and remove it from history; deleting the latest copy does not remove history.

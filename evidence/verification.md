@@ -15,7 +15,7 @@
 
 The saved JSON reports contain the request IDs for each test cohort. Local logs and model binaries are ignored and retained only in this workspace.
 
-The public repository was created by the user at https://github.com/harshithRai/contoso-delay-classifier. Source publication is pending GitHub integration access: both the saved Git credential and connector writes returned HTTP 403. The connector reports no GitHub App installation for the target account. The complete reviewed source is committed locally and is ready to publish once access is granted.
+The reviewed source was published publicly at https://github.com/harshithRai/contoso-delay-classifier using GitHub CLI after the user approved browser authorization. The authenticated account was verified as `harshithRai`. Credentials, local request logs, virtual environments and model binaries are excluded from the repository. Azure deployment and its evidence remain pending.
 
 ## Not executed
 
